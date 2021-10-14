@@ -23,8 +23,8 @@ mongo = PyMongo(app)
 
 
 def get_sheets():
-    sheets = mongo.db.cheat_sheet.find()
-    return render_template("sheets.html", cheat_sheet = sheets)
+    sheets = mongo.db.sheets.find()
+    return render_template("sheets.html", sheets = sheets)
 
 
 if __name__ == "__main__":
