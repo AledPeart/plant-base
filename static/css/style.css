@@ -56,7 +56,11 @@
 } */
 
 .my-form i {
-    color: #9EC2AF
+    color: #9EC2AF;
+}
+
+.my-form{
+    padding: 30px;
 }
 
 
