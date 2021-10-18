@@ -1,3 +1,7 @@
+.title-color {
+    color: #9EC2AF;
+
+}
 .header-strap p{
     margin: 0 auto;
     background-color: #9EC2AF;
@@ -39,5 +43,20 @@
 
 .social-footer i {
     padding: 10px;
+    margin-top: 2em;
 }
+
+
+/* registration page */
+/* 
+.my-form {
+    border: 5px solid #6c757d;
+    padding: 30px;
+    border-radius: 2%;
+} */
+
+.my-form i {
+    color: #9EC2AF
+}
+
 
