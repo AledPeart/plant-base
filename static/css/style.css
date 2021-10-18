@@ -1,7 +1,12 @@
+/* generic styles */
 .title-color {
     color: #9EC2AF;
-
 }
+
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+}
+
 .header-strap p{
     margin: 0 auto;
     background-color: #9EC2AF;
@@ -61,6 +66,10 @@
 
 .my-form{
     padding: 30px;
+}
+
+.form-box {
+    padding: 30px 40px;
 }
 
 
