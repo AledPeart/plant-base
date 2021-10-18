@@ -43,9 +43,24 @@
         </div>
       </nav>
     
+      <section>
+        <!-- flash messages displayed here -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="row flashes">
+                <h4 class="text-center title-color">{{ message }}</h4>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
-    {% block content %}
-    {% endblock %}  
+      </section>
+
+      <main class="container">
+        {% block content %}
+        {% endblock %}
+      </main>
     
     <footer>
       <div class="social social-footer d-flex justify-content-center">

@@ -30,6 +30,26 @@ def get_sheets():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        #check if the username entered already exists in the database
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user: #if this variable is TRUE and that userbname aleady exists
+            flash("That username already exists")
+            return redirect(url_for("register")) #returns the user to the form so that hey can try again
+
+        register = {                #this is the 'else' that creates a dictionary stored in the variable 'register' to insert into the db
+            "username": request.form.get("username").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))        #it would be good to add a second user password field later on
+        }
+        mongo.db.users.insert_one(register) 
+
+        #put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successfully Completed")
+
     return render_template("register.html")
 
 
