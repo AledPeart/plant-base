@@ -33,7 +33,11 @@
     color: #9EC2AF;
 }
 
-.social{
+.social-header {
     margin-right: 20px;
+}
+
+.social-footer i {
+    padding: 10px;
 }
 
