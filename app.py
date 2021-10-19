@@ -104,8 +104,9 @@ def logout():
 
 @app.route("/add_sheet")
 def add_sheet():
-    return render_template("add_sheet.html")
-    
+    categories = mongo.db.categories.find()
+    return render_template("add_sheet.html", categories=categories)
+
 
 
 

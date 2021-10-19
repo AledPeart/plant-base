@@ -7,31 +7,32 @@
         <div class="row justify-content-center">
             <div class="col-6 form-box shadow">
                 <h1 class="text-center title-color">Create a New Sheet</h1>
+
+                <!-- category name -->
+                <div class="mb-3">
+                    <label for="category_name" class="form-label">Category Name</label>
+                    <select id="category_name" name="category_name" class="form-select validate" required aria-label="Plant category list">
+                        <option selected>Choose one</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option> 
+                        {% endfor %}         
+                      </select>
+                    </div>
                 <!-- common name  -->
                 <div class="mb-3">
                     <label for="common_name" class="form-label">Plant Name</label>
-                    <!-- more advanced regex could be used here -->
                     <input type="text" name="common_name" class="form-control" id="common_name"
-                        aria-describedby="plantName" minlength="3" maxlength="30" required pattern="^[a-zA-Z]{3,30}$"> 
+                        aria-describedby="plantName" minlength="3" maxlength="30" required pattern="^[a-zA-Z]{3,30}$" required> 
                     <div class="form-text">Enter the 'common name' of your plant e.g Money Plant or Spider Plant.</div>
                 </div>
                  <!-- botanical name  -->
                  <div class="mb-3">
                     <label for="botanical_name" class="form-label">Plant Name</label>
                     <input type="text" name="botanical_name" class="form-control" id="botanical_name"
-                        aria-describedby="plantName" minlength="3" maxlength="50" required pattern="^[a-zA-Z0-9]{3,50}$"> 
-                    <div class="form-text">Enter the 'botanical name' of your plant if you are unsure you can leave it blank or try searching <a href="https://hortology.co.uk/" target="_blank">here</a></div>
+                        aria-describedby="plantName" minlength="3" maxlength="50" required pattern="^[a-zA-Z0-9]{3,50}$" required> 
+                    <div class="form-text">Enter the 'botanical name' of your plant if you are unsure you can try searching <a href="https://hortology.co.uk/" target="_blank">here</a></div>
                 </div>
-                <!-- category name -->
-                <div class="input-group mb-3">
-                    <select class="form-select" id="category_name" aria-label="Category options dropdown list">
-                        <option selected>Category Name</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-
+                
 
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
