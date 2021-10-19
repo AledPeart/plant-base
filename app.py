@@ -102,6 +102,12 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/add_sheet")
+def add_sheet():
+    return render_template("add_sheet.html")
+    
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
