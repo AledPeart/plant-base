@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for sheet in sheets %}
+    <!-- {% for sheet in sheets %}
     {{ sheet.common_name }}<br>
     {{ sheet.botanical_name }}<br>
     {{ sheet.difficulty }}<br>
@@ -11,7 +11,54 @@
     {{ sheet.water }}<br>
     {{ sheet.light }}<br>
     
+    {% endfor %} -->
+<div class="row">
+    {% for sheet in sheets %}
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body shadow">
+                <h3 class="card-title title-color"><strong>{{ sheet.common_name }}</strong></h3>
+                
+                <h6>{{ sheet.botanical_name }}</h6>
+                <div class="row sheet-icons">
+                <div class="col sun-icon">
+                    {% if sheet.light == "Shade" %}
+                    <i class="fas fa-sun yellow"></i>
+                    {% elif sheet.light == "Indirect Sunlight" %}
+                    <i class="fas fa-sun yellow"></i><i class="fas fa-sun yellow"></i>
+                    {% else %}
+                    <i class="fas fa-sun yellow"></i><i class="fas fa-sun yellow"></i><i class="fas fa-sun yellow"></i>
+                    {% endif %}
+                </div>
+                <div class="col water-icon">
+                    {% if sheet.water == "Once a Week" %}
+                    <i class="fas fa-tint blue"></i>
+                    {% elif sheet.water == "Twice a Week" %}
+                    <i class="fas fa-tint blue"></i><i class="fas fa-tint blue"></i>
+                    {% else %}
+                    <i class="fas fa-tint blue"></i><i class="fas fa-tint blue"></i><i class="fas fa-tint blue"></i>
+                    {% endif %}
+                </div>
+                <div class="col feed-icon">
+                    {% if sheet.feed == "Once a Month" %}
+                        <i class="fas fa-eye-dropper green"></i>
+                    {% elif sheet.feed == "Twice a Month" %}
+                        <i class="fas fa-eye-dropper green"></i><i class="fas fa-eye-dropper green"></i>
+                    {% else %}
+                        <i class="fas fa-eye-dropper green"></i><i class="fas fa-eye-dropper green"></i><i class="fas fa-eye-dropper green"></i>
+                    {% endif %}
+                </div>
+            </div>
+
+
+
+                <p class="card-text">{{ sheet.general_info }}</p>
+                <a href="#" class="btn btn-outline-secondary">See More</a>
+            </div>
+        </div>
+    </div>
     {% endfor %}
+</div>
 
 {% endblock %}
     

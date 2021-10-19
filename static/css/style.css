@@ -1,10 +1,25 @@
 /* generic styles */
+
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+}
+
+/* colors */
+
 .title-color {
     color: #9EC2AF;
 }
 
-.shadow {
-    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+.yellow{
+    color: #FFC947;
+}
+
+.blue{
+    color: #1597E5
+}
+
+.green{
+    color: #4E9F3D;
 }
 
 .header-strap p{
@@ -70,6 +85,12 @@
 
 .form-box {
     padding: 30px 40px;
+}
+
+/* Sheets */
+
+.sheet-icons i {
+    padding: 5px;
 }
 
 

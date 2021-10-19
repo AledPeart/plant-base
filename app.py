@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 
 
 def get_sheets():
-    sheets = mongo.db.sheets.find()
+    sheets = list(mongo.db.sheets.find()) 
     return render_template("sheets.html", sheets = sheets)
 
 
