@@ -102,8 +102,24 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_sheet")
+@app.route("/add_sheet", methods=["GET", "POST"])
 def add_sheet():
+    if request.method == "POST":
+        sheet = {
+            "category_name": request.form.get("category_name"),
+            "common_name": request.form.get("common_name"),
+            "botanical_name": request.form.get("botanical_name"),
+            "difficulty": request.form.get("difficulty"),
+            "light": request.form.get("light"),
+            "water": request.form.get("water"),
+            "feed": request.form.get("feed"),
+            "general_info": request.form.get("general_info"),
+            "created_by": session["user"]
+        }
+        mongo.db.sheets.insert_one(sheet)
+        flash("New Sheet Sucessfully Created")
+        return redirect(url_for("get_sheets"))
+
     categories = mongo.db.categories.find()
     return render_template("add_sheet.html", categories=categories)
 

@@ -49,12 +49,13 @@
                     {% endif %}
                 </div>
             </div>
-
-
-
                 <p class="card-text">{{ sheet.general_info }}</p>
                 <a href="#" class="btn btn-outline-secondary">See More</a>
+                <div class="div text-end">
+                    <p><strong>added by:{{ sheet.created_by }}</strong></p>
+                </div>
             </div>
+            
         </div>
     </div>
     {% endfor %}
