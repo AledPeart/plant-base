@@ -125,6 +125,14 @@ def add_sheet():
 
 
 
+@app.route("/edit_sheet/<sheet_id>", methods = ["GET", "POST"])
+def edit_sheet(sheet_id):
+    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+    categories = mongo.db.categories.find()
+    return render_template("edit_sheet.html", sheet=sheet, categories=categories)
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

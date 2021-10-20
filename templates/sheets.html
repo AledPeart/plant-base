@@ -53,6 +53,7 @@
                 <a href="#" class="btn btn-outline-secondary">See More</a>
                 <div class="div text-end">
                     <p><strong>added by:{{ sheet.created_by }}</strong></p>
+                    <a href="#"><i class="fas delete-icon fa-trash-alt"></i></a><a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}"><i class="fas edit-icon fa-edit"></i></a>
                 </div>
             </div>
             

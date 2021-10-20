@@ -22,6 +22,8 @@
     color: #4E9F3D;
 }
 
+/* page header */
+
 .header-strap p{
     margin: 0 auto;
     background-color: #9EC2AF;
@@ -90,6 +92,24 @@
 /* Sheets */
 
 .sheet-icons i {
+    padding: 5px;
+}
+
+.card-body{
+    width: auto;
+    height: 365px;
+    overflow: hidden;
+}
+
+.delete-icon {
+    font-size: 1rem;
+    color: #FF2442;
+    padding: 5px;
+}
+
+.edit-icon {
+    font-size: 1rem;
+    color: #77D970;
     padding: 5px;
 }
 

@@ -2,11 +2,11 @@
 {% block content %}
 
 
-<form class="my-form" method="POST" action="{{ url_for('add_sheet') }}">
+<form class="my-form" method="POST" action="{{ url_for('edit_sheet', sheet_id=sheet._id) }}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6 form-box shadow">
-                <h1 class="text-center title-color">Create a New Sheet</h1>
+                <h1 class="text-center title-color">Edit Sheet</h1>
 
                 <!-- category name -->
                 <div class="mb-3">
@@ -84,7 +84,7 @@
                       </div>
                 <!-- Submit button -->
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-outline-secondary">Submit</button>
+                    <button type="submit" class="btn btn-outline-secondary">Submit Changes</button>
                 </div>
             </div>
         </div>
