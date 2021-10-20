@@ -12,7 +12,7 @@
                 <div class="mb-3">
                     <label for="category_name" class="form-label was-validated">Category Name</label>
                     <select id="category_name" name="category_name" class="form-select validate" required aria-label="Plant category list">
-                        <option value="">Choose a Category</option>
+                        <option value="" disabled selected>Choose a Category</option>
                         {% for category in categories %}
                             <option value="{{ category.category_name }}">{{ category.category_name }}</option> 
                         {% endfor %}         

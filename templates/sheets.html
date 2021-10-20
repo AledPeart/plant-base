@@ -49,12 +49,20 @@
                     {% endif %}
                 </div>
             </div>
-                <p class="card-text">{{ sheet.general_info }}</p>
-                <a href="#" class="btn btn-outline-secondary">See More</a>
-                <div class="div text-end">
-                    <p><strong>added by:{{ sheet.created_by }}</strong></p>
-                    <a href="#"><i class="fas delete-icon fa-trash-alt"></i></a><a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}"><i class="fas edit-icon fa-edit"></i></a>
+            <p class="card-text">{{ sheet.general_info }}</p>
+            <div class="row">
+                <div class="col-4">
+                    <a href="#" class="btn btn-outline-secondary">See More</a>
                 </div>
+                <div class="col-8 text-end">
+                    <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">Edit<i
+                            class="fas edit-icon fa-edit"></i></a>
+                    <a href="#" class="btn btn-outline-secondary">Delete<i class="fas delete-icon fa-trash-alt"></i></a>
+                </div>
+            </div>
+            <div class="div text-end">
+                <p><strong>added by:{{ sheet.created_by }}</strong></p>
+            </div>
             </div>
             
         </div>
