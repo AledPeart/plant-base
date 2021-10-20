@@ -127,6 +127,22 @@ def add_sheet():
 
 @app.route("/edit_sheet/<sheet_id>", methods = ["GET", "POST"])
 def edit_sheet(sheet_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "common_name": request.form.get("common_name"),
+            "botanical_name": request.form.get("botanical_name"),
+            "difficulty": request.form.get("difficulty"),
+            "light": request.form.get("light"),
+            "water": request.form.get("water"),
+            "feed": request.form.get("feed"),
+            "general_info": request.form.get("general_info"),
+            "created_by": session["user"]
+        }
+        mongo.db.sheets.update({"_id": ObjectId(sheet_id)}, submit)
+        flash("Your Sheet Has Been Sucessfully Updated")
+        return redirect(url_for("get_sheets"))
+
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     return render_template("edit_sheet.html", sheet=sheet, categories=categories)
