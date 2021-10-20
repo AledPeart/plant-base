@@ -148,6 +148,13 @@ def edit_sheet(sheet_id):
     return render_template("edit_sheet.html", sheet=sheet, categories=categories)
 
 
+@app.route("/delete_sheet/<sheet_id>")
+def delete_sheet(sheet_id):
+    mongo.db.sheets.remove({"_id": ObjectId(sheet_id)})
+    flash("Sheet Successfully Deleted")
+    return redirect(url_for("get_sheets"))
+#need to add a delete confirmation warning
+
 
 
 if __name__ == "__main__":
