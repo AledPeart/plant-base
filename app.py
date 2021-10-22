@@ -28,6 +28,14 @@ def get_sheets():
     return render_template("sheets.html", sheets = sheets)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    sheets = list(mongo.db.sheets.find({"$text": {"$search": query}})) 
+    return render_template("sheets.html", sheets = sheets)
+
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

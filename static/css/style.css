@@ -55,6 +55,21 @@
     color: #9EC2AF !important;
 }
 
+.my-btn {
+    border-color: #ced4da;
+}
+
+.search-bar {
+    padding-right: 0 !important;
+}
+
+
+
+
+
+
+
+
 .social i {
     color: #9EC2AF;
 }
@@ -119,4 +134,16 @@
     font-weight: 800;
 }
 
+/* Flash Messages */
 
+.flash-body {
+    margin: 10px auto;
+    
+    width: fit-content;
+    height: auto !important;
+}
+
+.flash-body i {
+    font-size: 3rem;
+    color: #FFC947;
+}
