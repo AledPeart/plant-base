@@ -130,7 +130,23 @@
 
 /* Delete sheets modal */
 
+.modal-header {
+    background-color: #6c757d;
+    
+}
 
+.modal-title {
+    color: #fff;
+}
+
+.modal-header-icon {
+    color: #fff;
+    font-size: 3rem;
+    position: relative;
+        /* code altered from css tricks */
+    bottom: -5px;
+    right: 10px; 
+}
 
 /* Add Sheet */
 
@@ -149,7 +165,7 @@
 
 .flash-body i {
     font-size: 3rem;
-    color: #FFC947;
+    color: #9EC2AF;
 }
 
 
