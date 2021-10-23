@@ -85,14 +85,43 @@
                 <div class="col-4">
                     <a href="#" class="btn btn-outline-secondary">See More</a>
                 </div>
+
+                <!-- Edit Button -->
                 <div class="col-8 text-end">
                     {% if session.user|lower == sheet.created_by|lower or session.user|lower == "admin"|lower %}
-                        <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">Edit<i
-                                class="fas edit-icon fa-edit"></i></a>
-                        <a href="{{ url_for('delete_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">Delete<i class="fas delete-icon fa-trash-alt"></i></a>
+                    <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">Edit<i
+                            class="fas edit-icon fa-edit"></i></a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#delete-modal-{{sheet._id}}">
+                        Delete<i class="fas delete-icon fa-trash-alt"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete-modal-{{sheet._id}}" tabindex="-1" 
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h5 class="modal-title w-100" id="exampleModalLabel">Confirm Delete</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    Are you sure you want to delete this sheet?
+                                </div>
+                                <div class="modal-footer mx-auto">
+                                    <button type="button" class="btn modal-cancel-btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    <a href="{{ url_for('delete_sheet', sheet_id=sheet._id) }}"
+                                        class="btn modal-delete-btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {% endif %}
                 </div>
             </div>
+
+            <!-- Added  By -->
             <div class="div text-end">
                 <p><strong>added by:{{ sheet.created_by }}</strong></p>
             </div>
