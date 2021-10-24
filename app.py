@@ -43,9 +43,17 @@ def register():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-        if existing_user: #if this variable is TRUE and that userbname aleady exists
+        if existing_user: #if this variable is TRUE and that username aleady exists
             flash("That username already exists")
             return redirect(url_for("register")) #returns the user to the form so that hey can try again
+
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm-password")
+
+        if confirm_password != password:
+            flash("Your passwords do not match, please try again.")
+            return redirect(url_for("register"))
+
 
         register = {                #this is the 'else' that creates a dictionary stored in the variable 'register' to insert into the db
             "username": request.form.get("username").lower(),
