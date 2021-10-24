@@ -21,11 +21,24 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/get_sheets")
-
-
 def get_sheets():
     sheets = list(mongo.db.sheets.find()) 
     return render_template("sheets.html", sheets = sheets)
+
+@app.route("/view_sheet/<sheet_id>")
+def view_sheet(sheet_id):
+
+    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+    categories = mongo.db.categories.find()
+    return render_template("view_sheet.html", sheet=sheet, categories=categories)
+
+    # activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    # user = mongo.db.users.find_one({"username": activity["created_by"]})
+    # categories = list(mongo.db.categories.find())
+
+    # return render_template("view_activity.html", activity=activity,
+    #                        categories=categories, user=user)
+
 
 
 @app.route("/search", methods=["GET", "POST"])

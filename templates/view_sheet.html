@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+    {{ sheet.common_name }}<br>
+    {{ sheet.botanical_name }}<br>
+    {{ sheet.difficulty }}<br>
+    {{ sheet.category }}<br>
+    {{ sheet.feed }}<br>
+    {{ sheet.general_info }}<br>
+    {{ sheet.water }}<br>
+    {{ sheet.light }}<br>
+    
+
+
+
+
     <!-- {% for sheet in sheets %}
     {{ sheet.common_name }}<br>
     {{ sheet.botanical_name }}<br>
@@ -13,7 +27,7 @@
     
     {% endfor %} -->
 
-    <div class="col-md-4 mb-4 offset-md-9">
+    <!-- <div class="col-md-4 mb-4 offset-md-9">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row">
                 <div class="col pe-0">
@@ -30,7 +44,7 @@
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
 
     
 
@@ -43,7 +57,7 @@
             </div>
           </div> -->
 
-<div class="row">
+<!-- <div class="row">
     {% for sheet in sheets %}
     <div class="col-sm-4">
         <div class="card">
@@ -84,20 +98,20 @@
             <div class="row">
                 <div class="col-4">
                     <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">See More</a>
-                </div>
+                </div> -->
 
                 <!-- Edit Button -->
-                <div class="col-8 text-end">
+                <!-- <div class="col-8 text-end">
                     {% if session.user|lower == sheet.created_by|lower or session.user|lower == "admin"|lower %}
                     <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">Edit<i
-                            class="fas edit-icon fa-edit"></i></a>
+                            class="fas edit-icon fa-edit"></i></a> -->
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#delete-modal-{{sheet._id}}">
+                    <!-- <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#delete-modal-{{sheet._id}}">
                         Delete<i class="fas delete-icon fa-trash-alt"></i>
-                    </button>
+                    </button> -->
 
                     <!-- Modal -->
-                    <div class="modal fade" id="delete-modal-{{sheet._id}}" tabindex="-1" 
+                    <!-- <div class="modal fade" id="delete-modal-{{sheet._id}}" tabindex="-1" 
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -115,14 +129,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    {% endif %}
+                    <!-- {% endif %}
                 </div>
-            </div>
+            </div> -->
 
             <!-- Added  By -->
-            <div class="div text-end">
+            <!-- <div class="div text-end">
                 <p><strong>added by:{{ sheet.created_by }}</strong></p>
             </div>
             </div>
@@ -131,7 +145,7 @@
         <br>  
     </div>
     {% endfor %}
-</div>
+</div> -->
 
 {% endblock %}
     
