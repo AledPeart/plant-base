@@ -104,6 +104,10 @@
     padding: 30px 40px;
 }
 
+.password-checkbox {
+    margin: 5px;
+}
+
 /* Sheets */
 
 .sheet-icons i {

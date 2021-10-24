@@ -47,6 +47,7 @@ def register():
             flash("That username already exists")
             return redirect(url_for("register")) #returns the user to the form so that hey can try again
 
+        #confirms if users confirmation password matches the original Code sourced from https://code-institute-room.slack.com/archives/C7JQY2RHC/p1625910227318600
         password = request.form.get("password")
         confirm_password = request.form.get("confirm-password")
 
