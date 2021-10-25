@@ -11,15 +11,19 @@
 }
 
 .yellow{
-    color: #FFC947;
+    color: #FFD523;
 }
 
 .blue{
-    color: #1597E5
+    color: #B5DEFF
 }
 
 .green{
-    color: #4E9F3D;
+    color: #20847e;
+}
+
+.soft-black{
+    color: #313232;
 }
 
 /* page header */
@@ -130,6 +134,37 @@
     font-size: 1rem;
     color: #77D970;
     padding: 5px;
+}
+
+.sheet-image {
+    width: 300px;
+    height: 200px;
+    display: block;
+    object-fit: cover;
+    padding: 10px
+}
+
+
+/* view sheet */
+
+.view-sheet-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    padding: 10px
+}
+
+.quick-facts-card {
+    background-color: #fafafa;
+    border: 10px solid white;
+    color: #313232;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.quick-facts-card i {
+    padding-left: 5px;
+    color: #313232;
 }
 
 /* Delete sheets modal */

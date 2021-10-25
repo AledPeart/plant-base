@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
 
@@ -14,7 +15,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-
 
 mongo = PyMongo(app)
 
@@ -143,6 +143,7 @@ def add_sheet():
             "light": request.form.get("light"),
             "water": request.form.get("water"),
             "feed": request.form.get("feed"),
+            "image": request.form.get("image"),
             "general_info": request.form.get("general_info"),
             "created_by": session["user"]
         }

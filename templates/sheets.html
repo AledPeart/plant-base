@@ -47,83 +47,26 @@
     {% for sheet in sheets %}
     <div class="col-sm-4">
         <div class="card">
-            <div class="card-body shadow">
+            <div class="card-body shadow text-center">
                 <h3 class="card-title title-color"><strong>{{ sheet.common_name }}</strong></h3>
                 
                 <h6>{{ sheet.botanical_name }}</h6>
-                <div class="row sheet-icons">
-                <div class="col sun-icon">
-                    {% if sheet.light == "Shade" %}
-                    <i class="fas fa-sun yellow"></i>
-                    {% elif sheet.light == "Indirect Sunlight" %}
-                    <i class="fas fa-sun yellow"></i><i class="fas fa-sun yellow"></i>
-                    {% else %}
-                    <i class="fas fa-sun yellow"></i><i class="fas fa-sun yellow"></i><i class="fas fa-sun yellow"></i>
-                    {% endif %}
+                <div class=" container d-flex justify-content-center sheet-image-container">
+                    <img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}">
                 </div>
-                <div class="col water-icon">
-                    {% if sheet.water == "Once a Week" %}
-                    <i class="fas fa-tint blue"></i>
-                    {% elif sheet.water == "Twice a Week" %}
-                    <i class="fas fa-tint blue"></i><i class="fas fa-tint blue"></i>
-                    {% else %}
-                    <i class="fas fa-tint blue"></i><i class="fas fa-tint blue"></i><i class="fas fa-tint blue"></i>
-                    {% endif %}
-                </div>
-                <div class="col feed-icon">
-                    {% if sheet.feed == "Once a Month" %}
-                        <i class="fas fa-eye-dropper green"></i>
-                    {% elif sheet.feed == "Twice a Month" %}
-                        <i class="fas fa-eye-dropper green"></i><i class="fas fa-eye-dropper green"></i>
-                    {% else %}
-                        <i class="fas fa-eye-dropper green"></i><i class="fas fa-eye-dropper green"></i><i class="fas fa-eye-dropper green"></i>
-                    {% endif %}
-                </div>
-            </div>
-            <p class="card-text">{{ sheet.general_info }}</p>
+                
+            <!-- <p class="card-text">{{ sheet.general_info }}</p> testing replacing with an image-->
             <div class="row">
-                <div class="col-4">
-                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">See More</a>
+                <div class="col text-center">
+                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}" class="btn mt-2 btn-sm btn-outline-secondary">See More</a>
                 </div>
 
-                <!-- Edit Button -->
-                <div class="col-8 text-end">
-                    {% if session.user|lower == sheet.created_by|lower or session.user|lower == "admin"|lower %}
-                    <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn btn-outline-secondary">Edit<i
-                            class="fas edit-icon fa-edit"></i></a>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#delete-modal-{{sheet._id}}">
-                        Delete<i class="fas delete-icon fa-trash-alt"></i>
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="delete-modal-{{sheet._id}}" tabindex="-1" 
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header text-center">
-                                    <h2 class="modal-title w-100" id="exampleModalLabel"><i class="fas fa-exclamation-circle modal-header-icon"></i>Confirm Delete</h2>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    Are you sure you want to permanently delete the {{sheet.common_name}} sheet?
-                                </div>
-                                <div class="modal-footer mx-auto">
-                                    <button type="button" class="btn modal-cancel-btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                                    <a href="{{ url_for('delete_sheet', sheet_id=sheet._id) }}"
-                                        class="btn modal-delete-btn btn-danger">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% endif %}
-                </div>
+               
             </div>
 
             <!-- Added  By -->
             <div class="div text-end">
-                <p><strong>added by:{{ sheet.created_by }}</strong></p>
+                <p class="form-text">added by:{{ sheet.created_by }}</p>
             </div>
             </div>
                     
