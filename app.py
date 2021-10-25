@@ -54,6 +54,8 @@ def get_sheets():
     sheets = list(mongo.db.sheets.find()) 
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
+    # image = request.form.get("image")
+    # placeholder_image = (static)
 
     return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination,)
 
