@@ -202,6 +202,7 @@ def edit_sheet(sheet_id):
             "light": request.form.get("light"),
             "water": request.form.get("water"),
             "feed": request.form.get("feed"),
+            "image": request.form.get("image"),
             "general_info": request.form.get("general_info"),
             "created_by": session["user"]
         }

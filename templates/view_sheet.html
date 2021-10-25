@@ -5,7 +5,13 @@
 <div class="card mb-3 container">
     <div class="row">
         <div class="col-md-8">
-            <img src="{{ sheet.image }}" class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
+            {% if sheet.image == "" %}
+                    <img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
+                    {% else %}
+                    <img src="{{ sheet.image }}" class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
+
+                    {% endif %}
+            
         </div>
         <div class="col-md-4 quick-facts-card p-5">
             <h3 class="p-2 mb-4">Quick Facts</h3>
@@ -81,6 +87,7 @@
         </div>
 
         {% endif %}
+        
     </div>
 
         </div>
@@ -88,6 +95,9 @@
             <h3 class="card-title">{{ sheet.common_name }}</h3>
             <h5 class="card-title">{{ sheet.botanical_name }}</h5>
             <p class="card-text">{{ sheet.general_info }}</p>
+            <div class="text-center">
+            <a href="{{ url_for('get_sheets') }}" class="btn btn-sm btn-outline-secondary">Go Back<i class="fas fa-undo-alt"></i></a>
+        </div>
             <p class="card-text"><small class="text-muted">Sheet created and owned by <strong>{{ sheet.created_by }}</strong></small></p>
         </div>
     </div>
