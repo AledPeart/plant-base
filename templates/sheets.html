@@ -42,7 +42,7 @@
               </span>
             </div>
           </div> -->
-
+        
 <div class="row">
     {% for sheet in sheets %}
     <div class="col-sm-4">
@@ -74,6 +74,10 @@
         <br>  
     </div>
     {% endfor %}
+    
+</div>
+<div class="text-center">
+{{ pagination.links }}
 </div>
 
 {% endblock %}

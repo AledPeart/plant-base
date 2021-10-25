@@ -5,9 +5,13 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_paginate import Pagination, get_page_args
 
 if os.path.exists("env.py"):
     import env
+
+#Pagination shets per page
+PER_PAGE = 6
 
 
 app = Flask(__name__)
@@ -18,12 +22,41 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+#FUNCTIONS
+
+#Pagination
+# https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+
+def paginated(sheets):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    offset = page * PER_PAGE - PER_PAGE
+
+    return sheets[offset: offset + PER_PAGE]
+
+
+def pagination_args(sheets):
+    page, per_page, offset = get_page_args(
+        page_parameter='page', per_page_parameter='per_page')
+    total = len(sheets)
+
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap') 
+
+    return Pagination(page=page, per_page=PER_PAGE, total=total)
+
+
+
 
 @app.route("/")
 @app.route("/get_sheets")
 def get_sheets():
     sheets = list(mongo.db.sheets.find()) 
-    return render_template("sheets.html", sheets = sheets)
+    sheets_paginated = paginated(sheets)
+    pagination = pagination_args(sheets)
+
+    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination,)
+
 
 @app.route("/view_sheet/<sheet_id>")
 def view_sheet(sheet_id):

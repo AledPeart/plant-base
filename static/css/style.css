@@ -207,5 +207,15 @@
     color: #9EC2AF;
 }
 
+/* Pagination */
 
- 
+.pagination ul > li {
+   display:inline-block;
+   padding:0px 10px;
+    position: relative;
+}
+
+.pagination {   
+    justify-content: right;
+}
+
