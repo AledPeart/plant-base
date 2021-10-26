@@ -88,7 +88,9 @@ def view_sheet(sheet_id):
 def search():
     query = request.form.get("query")
     sheets = list(mongo.db.sheets.find({"$text": {"$search": query}})) 
-    return render_template("sheets.html", sheets = sheets)
+    sheets_paginated = paginated(sheets)
+    pagination = pagination_args(sheets)
+    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
 
 
 

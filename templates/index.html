@@ -20,10 +20,10 @@
                 in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <div class="col text-center">
                     {% if session.user %}
-                        <a href="{{ url_for('logout') }}"class="btn mb-4 px-3 btn-sm btn-outline-secondary">Logout</a>
-                        <a href="{{ url_for('profile', username=session['user']) }}"class="btn mb-4 btn-sm btn-outline-secondary">Profile</a>
-                        <a href="{{ url_for('add_sheet') }}"class="btn mb-4 btn-sm btn-outline-secondary">Add a Sheet</a>
+                        <!-- <a href="{{ url_for('logout') }}"class="btn mb-4 px-3 btn-sm btn-outline-secondary">Logout</a>
+                        <a href="{{ url_for('profile', username=session['user']) }}"class="btn mb-4 btn-sm btn-outline-secondary">Profile</a> -->
                         <a href="{{ url_for('get_sheets') }}"class="btn mb-4 btn-sm btn-outline-secondary">Browse</a>
+                        <a href="{{ url_for('add_sheet') }}"class="btn mb-4 btn-sm btn-outline-secondary">Add a Sheet</a>
                     {% else %}
                         <a href="{{ url_for('login') }}"class="btn mb-4 px-3 btn-sm btn-outline-secondary">Login</a>
                         <a href="{{ url_for('register') }}"class="btn mb-4 btn-sm btn-outline-secondary">Register</a>

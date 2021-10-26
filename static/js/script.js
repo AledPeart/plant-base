@@ -7,3 +7,8 @@ function myFunction() {
       x.type = "password";
     }
   }
+
+// function to fade out flashed messages - not working https://stackoverflow.com/questions/51822192/trying-javascript-to-have-my-flash-my-message-disappear-after-a-few-seconds-afte
+  setTimeout(function() {
+    $('#flash-messages').fadeOut('fast');
+}, 30000); 

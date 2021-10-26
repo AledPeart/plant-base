@@ -101,12 +101,6 @@
 
 
 /* registration page */
-/* 
-.my-form {
-    border: 5px solid #6c757d;
-    padding: 30px;
-    border-radius: 2%;
-} */
 
 .my-form i {
     color: #9EC2AF;
@@ -192,7 +186,6 @@
 
 .modal-header {
     background-color: #6c757d;
-    
 }
 
 .modal-title {
@@ -203,7 +196,7 @@
     color: #fff;
     font-size: 3rem;
     position: relative;
-        /* code altered from css tricks */
+ /* code altered from css tricks */
     bottom: -5px;
     right: 10px; 
 }
@@ -224,8 +217,8 @@
 }
 
 .flash-body i {
-    font-size: 3rem;
-    color: #9EC2AF;
+    font-size: 1.5rem;
+    color: #313232;
 }
 
 /* Pagination */
