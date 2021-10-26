@@ -13,7 +13,7 @@
                     {% endif %}
             
         </div>
-        <div class="col-md-4 quick-facts-card p-5">
+        <div class="col-md-4 quick-facts-card p-4">
             <h3 class="p-2 mb-4">Quick Facts</h3>
 
             <div class="mb-5">
@@ -55,15 +55,16 @@
                 <p><strong>Classification:</strong> {{ sheet.category_name }} </p>
             </div>
 
-                <!-- Edit Button -->
-     <div class="col-8 text-end">
+                <!-- Edit button -->
         {% if session.user|lower == sheet.created_by|lower or session.user|lower == "admin"|lower %}
-        <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn btn-sm btn-outline-secondary">Edit<i
+        <a href="{{ url_for('edit_sheet', sheet_id=sheet._id) }}" class="btn m-1 btn-sm btn-outline-secondary">Edit<i
                 class="fas edit-icon fa-edit"></i></a>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#delete-modal-{{sheet._id}}">
+        <!-- Delete button trigger modal -->
+        <button type="button" class="btn m-1 btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#delete-modal-{{sheet._id}}">
             Delete<i class="fas delete-icon fa-trash-alt"></i>
         </button>
+        <!-- Go back button -->
+        <a href="{{ url_for('get_sheets') }}" class="btn m-1 btn-sm btn-outline-secondary">Go Back<i class="fas return-icon fa-undo-alt"></i></a>
 
         <!-- Modal -->
         <div class="modal fade" id="delete-modal-{{sheet._id}}" tabindex="-1" 
@@ -90,18 +91,24 @@
         
     </div>
 
-        </div>
-        <div class="card-body">
-            <h3 class="card-title">{{ sheet.common_name }}</h3>
-            <h5 class="card-title">{{ sheet.botanical_name }}</h5>
-            <p class="card-text">{{ sheet.general_info }}</p>
-            <div class="text-center">
-            <a href="{{ url_for('get_sheets') }}" class="btn btn-sm btn-outline-secondary">Go Back<i class="fas fa-undo-alt"></i></a>
-        </div>
-            <p class="card-text"><small class="text-muted">Sheet created and owned by <strong>{{ sheet.created_by }}</strong></small></p>
-        </div>
     </div>
-</div>
+    <div class="card-body">
+        <h3 class="card-title">{{ sheet.common_name }}</h3>
+        <h5 class="card-title">{{ sheet.botanical_name }}</h5>
+        <p class="card-text">{{ sheet.general_info }}</p>
+        <div class="">
+            <p class="card-text"><small class="text-muted">Sheet created and owned by
+            <strong class="soft-black">{{ sheet.created_by }}</strong></small></p>
+        </div>
+        <!-- Go back button -->
+        <div class="sheet-footer-btn">
+            <a href="{{ url_for('get_sheets') }}" class="btn soft-black btn-sm btn-outline-secondary">Go Back<i
+                    class="fas return-icon fa-undo-alt"></i></a>
+                </div>
+        
+    </div>
+    </div>
+    </div>
 
 
     <!-- <div class="row sheet-icons">

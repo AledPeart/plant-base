@@ -136,6 +136,11 @@
     padding: 5px;
 }
 
+.return-icon {
+    font-size: 1rem;
+    padding: 5px;
+}
+
 .sheet-image {
     width: 300px;
     height: 200px;
@@ -165,6 +170,10 @@
 .quick-facts-card i {
     padding-left: 5px;
     color: #313232;
+}
+
+.sheet-footer-btn {
+    float: right !important;
 }
 
 /* Delete sheets modal */
