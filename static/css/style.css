@@ -80,6 +80,25 @@
     margin-top: 2em;
 }
 
+/* homepage */
+
+.homepage-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    padding: 10px
+}
+
+.homepage-card-box {
+    background-color: #fff;
+    width: 50%;
+    height: auto;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-self: center;
+}
+
 
 /* registration page */
 /* 
