@@ -67,13 +67,6 @@
     padding-right: 0 !important;
 }
 
-
-
-
-
-
-
-
 .social i {
     color: #9EC2AF;
 }
@@ -120,7 +113,7 @@
 
 .card-body{
     width: auto;
-    height: 365px;
+    height: fit-content;
     overflow: hidden;
 }
 
@@ -227,4 +220,8 @@
 .pagination {   
     justify-content: right;
 }
+
+/* Profile page */
+
+
 
