@@ -26,6 +26,7 @@ mongo = PyMongo(app)
 
 #Pagination
 # https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+# https://github.com/Edb83/self-isolution/blob/master/app.py
 
 def paginated(sheets):
     page, per_page, offset = get_page_args(
@@ -64,7 +65,7 @@ def get_sheets():
     # image = request.form.get("image")
     # placeholder_image = (static)
 
-    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination,)
+    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
 
 
 @app.route("/view_sheet/<sheet_id>")
@@ -159,10 +160,12 @@ def profile(username):
     #grabs the session users username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    sheets = list(mongo.db.sheets.find()) 
+    sheets = list(mongo.db.sheets.find())  
+    sheets_paginated = paginated(sheets)
+    pagination = pagination_args(sheets)
     
     if session["user"]:      
-        return render_template("profile.html", username=username, sheets=sheets)
+        return render_template("profile.html", username=username, sheets=sheets_paginated, pagination=pagination)
 
     return redirect(url_for("login"))
 

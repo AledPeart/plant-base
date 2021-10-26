@@ -14,8 +14,9 @@
                  <div class="col text-center">
                  <a href="{{ url_for('add_sheet') }}"class="btn mb-4 btn-sm btn-outline-secondary">Create New Sheet</a>
                 </div>
-            
 
+                {{ pagination.links }}
+            
             {% for sheet in sheets if session.user|lower == sheet.created_by|lower %}
            
                     <div class="col">
@@ -45,7 +46,9 @@
                         <br>
                     </div>
                 {% endfor %}
+                {{ pagination.links }}
         </div>
     </div>
+    
 </div>
 {% endblock %}
