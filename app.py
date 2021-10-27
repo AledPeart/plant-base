@@ -51,12 +51,13 @@ def pagination_args(sheets):
 
 @app.route("/")
 
+#### HOME ####
 @app.route("/home")
 def home():
 
     return render_template("index.html")
 
-
+#### GET SHEETS ####
 @app.route("/get_sheets")
 def get_sheets():
     sheets = list(mongo.db.sheets.find()) 
@@ -95,7 +96,7 @@ def search():
     return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
 
 
-
+#### REGISTER ####
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -115,7 +116,6 @@ def register():
             flash("Your passwords do not match, please try again.")
             return redirect(url_for("register"))
 
-
         register = {                #this is the 'else' that creates a dictionary stored in the variable 'register' to insert into the db
             "username": request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
@@ -129,7 +129,7 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
-
+#### LOGIN ####
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -158,7 +158,7 @@ def login():
 
     return render_template("login.html") 
 
-
+#### PROFILE ####
 @app.route("/profile/<username>", methods = ["GET", "POST"])
 def profile(username):
     #grabs the session users username from the database
@@ -173,7 +173,7 @@ def profile(username):
 
     return redirect(url_for("login"))
 
-
+#### LOGOUT ####
 @app.route("/logout") 
 def logout():
     #remove user from session cookies
@@ -181,9 +181,10 @@ def logout():
     session.pop("user") 
     return redirect(url_for("login"))
 
-
+#### ADD SHEET ####
 @app.route("/add_sheet", methods=["GET", "POST"])
 def add_sheet():
+
     if request.method == "POST":
         sheet = {
             "category_name": request.form.get("category_name"),
@@ -197,6 +198,12 @@ def add_sheet():
             "general_info": request.form.get("general_info"),
             "created_by": session["user"]
         }
+
+     # check if the user is logged in
+    elif "user" not in session:
+        flash("Please Login in order to continue")
+        return redirect(url_for("login"))
+
         mongo.db.sheets.insert_one(sheet)
         flash("New Sheet Sucessfully Created")
         return redirect(url_for("get_sheets"))
@@ -205,49 +212,68 @@ def add_sheet():
     return render_template("add_sheet.html", categories=categories)
 
 
-
-@app.route("/edit_sheet/<sheet_id>", methods = ["GET", "POST"])
+#### EDIT SHEET ####
+@app.route("/edit_sheet/<sheet_id>", methods=["GET", "POST"])
 def edit_sheet(sheet_id):
-
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "common_name": request.form.get("common_name"),
-            "botanical_name": request.form.get("botanical_name"),
-            "difficulty": request.form.get("difficulty"),
-            "light": request.form.get("light"),
-            "water": request.form.get("water"),
-            "feed": request.form.get("feed"),
-            "image": request.form.get("image"),
-            "general_info": request.form.get("general_info"),
-            "created_by": session["user"]
-        }
-        mongo.db.sheets.update({"_id": ObjectId(sheet_id)}, submit)
-        flash("Your Sheet Has Been Sucessfully Updated")
-        return redirect(url_for("get_sheets"))
-
-        if "user" not in session:
-            flash("Please Login in order to continue")
-
-            return redirect(url_for("login"))
-
-        elif session["user"] != created_by and session["user"] != "admin":
-            flash("You do not have permission to edit this sheet")
-
-            return redirect(url_for("get_sheets"))
 
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
+    owner = sheet["created_by"]
+
+    # check if the user is logged in
+    if "user" not in session:
+        flash("Please Login in order to continue")
+        return redirect(url_for("login"))
+
+    # then check that this user is the owner of the sheet
+    elif session["user"] != owner and session["user"] != "admin":
+         flash("You do not have permission to edit this sheet")
+
+         return redirect(url_for("get_sheets"))
+
+    # then allow the sheet to be updated
+    else:
+         if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "common_name": request.form.get("common_name"),
+                "botanical_name": request.form.get("botanical_name"),
+                "difficulty": request.form.get("difficulty"),
+                "light": request.form.get("light"),
+                "water": request.form.get("water"),
+                "feed": request.form.get("feed"),
+                "image": request.form.get("image"),
+                "general_info": request.form.get("general_info"),
+                "created_by": session["user"]
+            }
+            mongo.db.sheets.update({"_id": ObjectId(sheet_id)}, submit)
+            flash("Your Sheet Has Been Sucessfully Updated")
+            return redirect(url_for("get_sheets"))
+
     return render_template("edit_sheet.html", sheet=sheet, categories=categories)
 
-
+#### DELETE SHEET ####
 @app.route("/delete_sheet/<sheet_id>")
 def delete_sheet(sheet_id):
-    mongo.db.sheets.remove({"_id": ObjectId(sheet_id)})
-    flash("Sheet Successfully Deleted")
-    return redirect(url_for("get_sheets"))
-#need to add a delete confirmation warning
 
+    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+    owner = sheet["created_by"]
+
+     # check if the user is logged in
+    if "user" not in session:
+        flash("Please Login in order to continue")
+        return redirect(url_for("login"))
+
+    # then check that this user is the owner of the sheet
+    elif session["user"] != owner and session["user"] != "admin":
+        flash("You do not have permission to delete this sheet")
+
+        return redirect(url_for("get_sheets"))
+
+    else: 
+        mongo.db.sheets.remove({"_id": ObjectId(sheet_id)})
+        flash("Sheet Successfully Deleted")
+        return redirect(url_for("get_sheets"))
 
 
 if __name__ == "__main__":
