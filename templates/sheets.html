@@ -53,12 +53,13 @@
                 <h6>{{ sheet.category_name }}</h6>
                 <div class=" container d-flex justify-content-center sheet-image-container">
                     {% if sheet.image == "" %}
-                    <img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" class="sheet-image" alt="image of a {{ sheet.common_name }}">
+                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
                     {% else %}
-                    <img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}">
-
+                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
                     {% endif %}
                 </div>
+
+                
                 
             <!-- <p class="card-text">{{ sheet.general_info }}</p> testing replacing with an image-->
             <div class="row">
