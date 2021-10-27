@@ -10,7 +10,7 @@ from flask_paginate import Pagination, get_page_args
 if os.path.exists("env.py"):
     import env
 
-#Pagination shets per page
+#Pagination sheets per page
 PER_PAGE = 6
 
 
@@ -225,6 +225,7 @@ def edit_sheet(sheet_id):
         flash("Your Sheet Has Been Sucessfully Updated")
         return redirect(url_for("get_sheets"))
 
+    
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     return render_template("edit_sheet.html", sheet=sheet, categories=categories)
