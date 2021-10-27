@@ -8,7 +8,8 @@ function myFunction() {
     }
   }
 
-// function to fade out flashed messages - not working https://stackoverflow.com/questions/51822192/trying-javascript-to-have-my-flash-my-message-disappear-after-a-few-seconds-afte
-  setTimeout(function() {
-    $('#flash-messages').fadeOut('fast');
-}, 30000); 
+// function to fade out flashed messages - https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close
+
+$("#flash-messages").fadeTo(3000, 500).slideUp(500, function(){
+  $("#flash-messages").slideUp(500);
+});
