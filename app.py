@@ -208,6 +208,7 @@ def add_sheet():
 
 @app.route("/edit_sheet/<sheet_id>", methods = ["GET", "POST"])
 def edit_sheet(sheet_id):
+
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -225,7 +226,16 @@ def edit_sheet(sheet_id):
         flash("Your Sheet Has Been Sucessfully Updated")
         return redirect(url_for("get_sheets"))
 
-    
+        if "user" not in session:
+            flash("Please Login in order to continue")
+
+            return redirect(url_for("login"))
+
+        elif session["user"] != created_by and session["user"] != "admin":
+            flash("You do not have permission to edit this sheet")
+
+            return redirect(url_for("get_sheets"))
+
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     return render_template("edit_sheet.html", sheet=sheet, categories=categories)
