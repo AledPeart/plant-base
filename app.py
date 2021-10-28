@@ -13,7 +13,6 @@ if os.path.exists("env.py"):
 #Pagination sheets per page
 PER_PAGE = 6
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -54,8 +53,12 @@ def pagination_args(sheets):
 #### HOME ####
 @app.route("/home")
 def home():
-
-    return render_template("index.html")
+    if "user" in session:
+        username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+        return render_template("index.html", username=username)
+    else:
+        return render_template("index.html")
 
 #### GET SHEETS ####
 @app.route("/get_sheets")
