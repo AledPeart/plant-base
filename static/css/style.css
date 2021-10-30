@@ -67,17 +67,14 @@
     padding-right: 0 !important;
 }
 
-.social i {
-    color: #9EC2AF;
-}
-
-.social-header {
+.profile-icon {
     margin-right: 20px;
 }
 
 .social-footer i {
     padding: 10px;
     margin-top: 2em;
+    color: #9EC2AF;
 }
 
 /* homepage */
@@ -92,11 +89,17 @@
 
 .homepage-card-box {
     background-color: #fff;
-    width: 50%;
-    height: auto;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     align-self: center;
+}
+
+/* following media query to reduce the homepage text box on larger screens */
+@media screen and (min-width: 992px) {
+    .homepage-card-box {
+        width: 50%;
+        height: auto;
+    }
 }
 
 
