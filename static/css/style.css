@@ -114,8 +114,22 @@
 }
 
 .form-box {
-    padding: 30px 40px;
+padding: 30px 10px;
 }
+
+
+/* following media query to reduce increase the padding on this box on larger screens */
+@media screen and (min-width: 992px) {
+    .form-box {
+        padding: 30px 40px;
+    }
+}
+
+/* @media screen and (min-width: 992px) {
+    .my-form {
+        padding: 30px 40px;
+    }
+} */
 
 .password-checkbox {
     margin: 5px;
