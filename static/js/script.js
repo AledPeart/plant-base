@@ -22,3 +22,10 @@ $(window).resize(function() {
   if (window.innerWidth >= 992) $homeBox.addClass('card-img-overlay');
   else $homeBox.removeClass('card-img-overlay');
 });
+
+
+// const img = document.getElementById("image")
+// img.addEventListener("error", function(event) {
+//   event.target.src = "static/images/placeholder-image-potted.jpg"
+//   event.onerror = null
+// })

@@ -235,12 +235,12 @@ padding: 30px 10px;
     
 }
 
+/* code altered from css tricks */
+    /* bottom: px; */
 .modal-header-icon {
     color: #fff !important;
     font-size: 1.8rem;
     position: relative;
- /* code altered from css tricks */
-    /* bottom: px; */
     right: 10px; 
 }
 
