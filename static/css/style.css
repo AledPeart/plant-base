@@ -77,6 +77,15 @@
     color: #9EC2AF;
 }
 
+/* following media query to reduce padding on smaller screens */
+@media screen and (max-width: 768px) {
+    .nav-link {
+        padding: 5px !important;
+    }
+}
+
+
+
 /* homepage */
 
 .homepage-image {
@@ -124,12 +133,6 @@ padding: 30px 10px;
         padding: 30px 40px;
     }
 }
-
-/* @media screen and (min-width: 992px) {
-    .my-form {
-        padding: 30px 40px;
-    }
-} */
 
 .password-checkbox {
     margin: 5px;
@@ -189,6 +192,24 @@ padding: 30px 10px;
     color: #313232;
     font-family: 'Roboto Mono', monospace;
 }
+
+.search-container {
+    padding: 0 !important;
+}
+
+.search-bar {
+    margin-left: 20px;
+}
+
+/* following media query to reduce font size on smaller screens */
+
+@media screen and (max-width: 576px) {
+    .quick-facts-card {
+        font-size: 0.8rem;
+        padding:    0;
+    }
+}
+
 
 .quick-facts-card i {
     padding-left: 5px;

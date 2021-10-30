@@ -5,7 +5,7 @@
 <div class="card mb-3 container">
     <div class="row">
         <!-- Image from Vecteezy.com -->
-        <div class="col-md-8">
+        <div class="col-lg-8">
             {% if sheet.image == "" %}
             <img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}"
                 class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
@@ -15,7 +15,7 @@
             {% endif %}
 
         </div>
-        <div class="col-md-4 quick-facts-card p-4">
+        <div class="col-lg-4 quick-facts-card p-4">
             <h3 class="p-2 mb-4">Quick Facts</h3>
 
             <div class="mb-5">
@@ -68,9 +68,9 @@
                 Delete<i class="fas delete-icon fa-trash-alt"></i>
             </button>
 
-            <!-- Go back button -->
+            <!-- Go back button
             <a href="{{ url_for('get_sheets') }}" class="btn m-1 btn-sm btn-outline-secondary">Go Back<i
-                    class="fas return-icon fa-undo-alt"></i></a>
+                    class="fas return-icon fa-undo-alt"></i></a> -->
 
             <!-- Modal -->
             <div class="modal fade" id="delete-modal-{{sheet._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -109,9 +109,11 @@
                     <strong class="soft-black">{{ sheet.created_by }}</strong></small></p>
         </div>
         <!-- Go back button -->
-        <div class="sheet-footer-btn">
-            <a href="{{ url_for('get_sheets') }}" class="btn soft-black btn-sm btn-outline-secondary">Go Back<i
-                    class="fas return-icon fa-undo-alt"></i></a>
+        <div class="sheet-footer-btn mt-3">
+            <a href="{{ url_for('get_sheets') }}" class="btn soft-black btn-sm btn-outline-secondary">View Sheets<i
+                    class="fas return-icon fa-eye"></i></a>
+            <a href="{{ url_for('profile', username=session['user']) }}" class="btn soft-black btn-sm btn-outline-secondary">Profile<i
+                    class="fas return-icon fa-eye"></i></a>
         </div>
 
     </div>

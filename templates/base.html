@@ -95,7 +95,7 @@
         {% endblock %}
       </main>
     
-    <footer>
+    <footer class="mb-3">
       <div class="social social-footer d-flex justify-content-center">
         <a class="mx-2" href="#!"><i class="fab fa-2x fa-twitter"></i></a>
         <a class="mx-2" href="#!"><i class="fab fa-2x fa-facebook-f"></i></a>
@@ -110,8 +110,9 @@
           <li class="nav-item"><a class="nav-link" href="{{ url_for('get_sheets') }}">Sheets</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('add_sheet') }}">Add Sheet</a></li>
-        {% else %} -->
+          <!-- <li class="nav-item"><a class="nav-link" href="{{ url_for('add_sheet') }}">Add Sheet</a></li> -->
+
+        {% else %}
           <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url_for('register') }}">Register</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url_for('get_sheets') }}">Browse</a></li>
