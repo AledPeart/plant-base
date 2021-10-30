@@ -71,6 +71,10 @@
     margin-right: 20px;
 }
 
+.user-icon {
+    font-size: 1.25rem;
+}
+
 .social-footer i {
     padding: 10px;
     margin-top: 2em;
@@ -152,13 +156,11 @@ padding: 30px 10px;
 
 .delete-icon {
     font-size: 1rem;
-    color: #FF2442;
     padding: 5px;
 }
 
 .edit-icon {
     font-size: 1rem;
-    color: #77D970;
     padding: 5px;
 }
 
@@ -221,21 +223,24 @@ padding: 30px 10px;
 }
 
 /* Delete sheets modal */
-
+.modal-content{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .modal-header {
-    background-color: #6c757d;
+    background-color: #ffc107;
 }
 
 .modal-title {
     color: #fff;
+    
 }
 
 .modal-header-icon {
-    color: #fff;
-    font-size: 3rem;
+    color: #fff !important;
+    font-size: 1.8rem;
     position: relative;
  /* code altered from css tricks */
-    bottom: -5px;
+    /* bottom: px; */
     right: 10px; 
 }
 

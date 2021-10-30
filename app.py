@@ -68,8 +68,12 @@ def get_sheets():
     pagination = pagination_args(sheets)
     # image = request.form.get("image")
     # placeholder_image = (static)
-
-    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+        return render_template("sheets.html", username=username, sheets=sheets_paginated, pagination=pagination)
+    else: 
+        return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
 
 
 @app.route("/view_sheet/<sheet_id>")
@@ -77,16 +81,20 @@ def view_sheet(sheet_id):
 
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
-    return render_template("view_sheet.html", sheet=sheet, categories=categories)
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("view_sheet.html", username=username, sheet=sheet, categories=categories)
 
 
 
-@app.route("/view_profile_sheet/<sheet_id>")
-def view_profile_sheet(sheet_id):
+# @app.route("/view_profile_sheet/<sheet_id>")
+# def view_profile_sheet(sheet_id):
 
-    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
-    categories = mongo.db.categories.find()
-    return render_template("view_profile_sheet.html", sheet=sheet, categories=categories)
+#     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+#     categories = mongo.db.categories.find()
+#     username = mongo.db.users.find_one(
+#         {"username": session["user"]})["username"]
+#     return render_template("view_profile_sheet.html", username=username, sheet=sheet, categories=categories)
 
 
 
@@ -122,7 +130,7 @@ def register():
         register = {                #this is the 'else' that creates a dictionary stored in the variable 'register' to insert into the db
             "username": request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password"))        #it would be good to add a second user password field later on
+            "password": generate_password_hash(request.form.get("password")) 
         }
         mongo.db.users.insert_one(register) 
 
@@ -189,6 +197,8 @@ def logout():
 def add_sheet():
 
     categories = mongo.db.categories.find()
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
     # check if the user is logged in
     if "user" not in session:
@@ -213,7 +223,7 @@ def add_sheet():
             flash("New Sheet Sucessfully Created")
             return redirect(url_for("get_sheets"))
 
-    return render_template("add_sheet.html", categories=categories)
+    return render_template("add_sheet.html", username=username, categories=categories)
 
 
 
@@ -224,6 +234,8 @@ def edit_sheet(sheet_id):
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     owner = sheet["created_by"]
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
     # check if the user is logged in
     if "user" not in session:
@@ -255,7 +267,7 @@ def edit_sheet(sheet_id):
             flash("Your Sheet Has Been Sucessfully Updated")
             return redirect(url_for("get_sheets"))
 
-    return render_template("edit_sheet.html", sheet=sheet, categories=categories)
+    return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
 
 #### DELETE SHEET ####
 @app.route("/delete_sheet/<sheet_id>")

@@ -56,11 +56,14 @@
         </div>
         <!-- Profile Icon is hidden on smaller screens to reduce clutter in the mobile navbar -->
         <div class="profile-icon d-none d-lg-flex mr-0 text-center">
+          {% if session.user %}
             <a class="mx-2" href="{{ url_for('profile', username=session['user']) }}"><i
-                class="fas title-color fa-x3 fa-user"></i></a>
-            {% if session.user %}
+                class="fas user-icon title-color fa-2x fa-user"></i></a>
             <span class="title-color">{{ username }}</span>
-            {% endif %}
+          {% else %}
+            <a class="mx-2" href="{{ url_for('login') }}"><i
+            class="fas user-icon title-color fa-2x fa-user-slash"></i></a>      
+          {% endif %}
           
         </div>
       </div>

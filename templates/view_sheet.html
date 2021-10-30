@@ -78,15 +78,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header text-center">
-                            <h2 class="modal-title w-100" id="exampleModalLabel"><i
-                                    class="fas fa-exclamation-circle modal-header-icon"></i>Confirm Delete</h2>
+                            <h3 class="modal-title w-100" id="exampleModalLabel"><i
+                                    class="fas fa-exclamation-circle modal-header-icon"></i>Confirm Delete</h3>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            Are you sure you want to permanently delete the {{sheet.common_name}} sheet?
+                          <p>Are you sure you want to permanently delete the {{sheet.common_name}} sheet? Once you click delete this action cannot be undone.</p>
                         </div>
                         <div class="modal-footer mx-auto">
-                            <button type="button" class="btn modal-cancel-btn btn-secondary" data-bs-dismiss="modal"
+                            <button type="button" class="btn modal-cancel-btn btn-outline-secondary" data-bs-dismiss="modal"
                                 aria-label="Close">Cancel</button>
                             <a href="{{ url_for('delete_sheet', sheet_id=sheet._id) }}"
                                 class="btn modal-delete-btn btn-danger">Delete</a>
