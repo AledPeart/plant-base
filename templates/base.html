@@ -26,21 +26,24 @@
 <body>
 
   <div class="header-strap text-center">
-    <p>Everything your houseplants need in one place</p>
+    <p>Absolutely everything your houseplants need in one place</p>
   </div>
   
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-lg-5">
     <div class="container">
       <!-- logo -->
+      <div class="col">
       <a class="navbar-brand" href="{{ url_for('home') }}">Plant Base<i class="fas fa-seedling"></i></a>
+    </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+   
       <!-- navbar -->
       <div class="collapse text-end navbar-collapse col" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div class="navbar-nav mx-auto">
           <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
           {% if session.user %}
           <a class="nav-link" href="{{ url_for('get_sheets') }}">Sheets</a>
@@ -54,8 +57,9 @@
 
           {% endif %}
         </div>
+      </div>
         <!-- Profile Icon is hidden on smaller screens to reduce clutter in the mobile navbar -->
-        <div class="profile-icon d-none d-lg-flex mr-0 text-center">
+        <div class="profile-icon col d-none text-end d-lg-block">
           {% if session.user %}
             <a class="mx-2" href="{{ url_for('profile', username=session['user']) }}"><i
                 class="fas user-icon title-color fa-2x fa-user"></i></a>
@@ -66,9 +70,11 @@
           {% endif %}
           
         </div>
-      </div>
+      
+      
     </div>
   </nav>
+
     
       <section>
         <!-- flash messages displayed here -->
