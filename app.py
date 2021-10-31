@@ -25,6 +25,7 @@ mongo = PyMongo(app)
 
 #Pagination
 # https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+# https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
 # https://github.com/Edb83/self-isolution/blob/master/app.py
 
 def paginated(sheets):
@@ -76,6 +77,7 @@ def get_sheets():
         return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
 
 
+#### VIEW SHEET####
 @app.route("/view_sheet/<sheet_id>")
 def view_sheet(sheet_id):
 
@@ -173,16 +175,24 @@ def login():
 @app.route("/profile/<username>", methods = ["GET", "POST"])
 def profile(username):
     #grabs the session users username from the database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    sheets = list(mongo.db.sheets.find())  
+    username = mongo.db.users.find_one({"username": session["user"]})["username"]         
+    sheets = list(mongo.db.sheets.find({"created_by": session["user"]}))
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
+    total = len(sheets)
     
-    if session["user"]:      
-        return render_template("profile.html", username=username, sheets=sheets_paginated, pagination=pagination)
+    # if session["user"]:      
+    #     return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
+    # else:
+    #     return redirect(url_for("login"))
+    
+    if "user" in session:
+        return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
+    else: 
+        flash("Please login first")
+        return redirect(url_for("login"))
 
-    return redirect(url_for("login"))
+
 
 #### LOGOUT ####
 @app.route("/logout") 
