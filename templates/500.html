@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<section>
+    <div class="container not-found-container text-center mt-5">
+        <h2 class="text-center not-found-heading">Uh Oh!</h2>
+        <p class="text-center not-found-heading">It looks
+            like
+            something went wrong.</p>
+        <p class="text-center not-found-text">Not to worry though, to head back to the main site click</p>
+        <a role="button" class="btn btn-warning btn-lg" href="{{ url_for('home') }}">
+            here</a>
+    </div>
+</Section>
+
+
+
+
+
+
+
+{% endblock %}
