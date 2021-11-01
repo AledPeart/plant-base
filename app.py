@@ -93,27 +93,20 @@ def view_sheet(sheet_id):
         return render_template("view_sheet.html", sheet=sheet, categories=categories)
 
     
-
-
-
-# @app.route("/view_profile_sheet/<sheet_id>")
-# def view_profile_sheet(sheet_id):
-
-#     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
-#     categories = mongo.db.categories.find()
-#     username = mongo.db.users.find_one(
-#         {"username": session["user"]})["username"]
-#     return render_template("view_profile_sheet.html", username=username, sheet=sheet, categories=categories)
-
-
-
+####SEARCH####
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     sheets = list(mongo.db.sheets.find({"$text": {"$search": query}})) 
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
-    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+        return render_template("sheets.html", username=username, sheets=sheets_paginated, pagination=pagination)
+    else: 
+        return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
+
 
 
 #### REGISTER ####
@@ -160,20 +153,20 @@ def login():
         if existing_user: 
             #if this variable is TRUE need to ensure passwords match
             if check_password_hash(
-                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
                         request.form.get("username")))
-                    return redirect(url_for(
+                return redirect(url_for(
                         "profile", username=session["user"]))
             else: 
                 #invalid password match
-                flash("Incorrect username and/or password entered")
+                flash("Incorrect username and/or password entered. Please try again.")
                 return redirect(url_for("login"))
 
         else:
             #username doesn't exist
-            flash("Incorrect username and/or password entered")
+            flash("Incorrect username and/or password entered. Please try again.")
             return redirect(url_for("login"))
 
     return render_template("login.html") 
