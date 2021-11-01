@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_paginate import Pagination, get_page_args
-
+import requests
 if os.path.exists("env.py"):
     import env
 
@@ -220,6 +220,13 @@ def add_sheet():
 
     else:
         if request.method == "POST":
+            user_input_image = request.form.get("image")
+            accepted_image_formats = ("image/png", "image/jpeg", "image/jpg")
+            r = requests.head(user_input_image)
+            if r.headers["content-type"] in accepted_image_formats:
+                final_image = user_input_image
+            else:
+                final_image = "static/images/placeholder-image-potted.jpg"
             sheet = {
                 "category_name": request.form.get("category_name"),
                 "common_name": request.form.get("common_name"),
@@ -228,7 +235,7 @@ def add_sheet():
                 "light": request.form.get("light"),
                 "water": request.form.get("water"),
                 "feed": request.form.get("feed"),
-                "image": request.form.get("image"),
+                "image": final_image,
                 "general_info": request.form.get("general_info"),
                 "created_by": session["user"]
             }
@@ -239,11 +246,13 @@ def add_sheet():
     return render_template("add_sheet.html", username=username, categories=categories)
 
 
+###Image Validation Checks### sourec:https://stackoverflow.com/questions/10543940/check-if-a-url-to-an-image-is-up-and-exists-in-python
+# def test():
+#     print("testing")
 
 #### EDIT SHEET ####
 @app.route("/edit_sheet/<sheet_id>", methods=["GET", "POST"])
 def edit_sheet(sheet_id):
-
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     owner = sheet["created_by"]
@@ -258,13 +267,21 @@ def edit_sheet(sheet_id):
 
     # then check that this user is the owner of the sheet
     elif session["user"] != owner and session["user"] != "admin":
-         flash("You do not have permission to edit this sheet")
+        flash("You do not have permission to edit this sheet")
 
-         return redirect(url_for("get_sheets"))
+        return redirect(url_for("get_sheets"))
 
     # then allow the sheet to be updated
     else:
-         if request.method == "POST":
+        if request.method == "POST":
+            user_input_image = request.form.get("image")
+            accepted_image_formats = ("image/png", "image/jpeg", "image/jpg")
+            r = requests.head(user_input_image)
+            if r.headers["content-type"] in accepted_image_formats:
+                final_image = user_input_image
+            else:
+                final_image = "static/images/placeholder-image-potted.jpg"
+
             submit = {
                 "category_name": request.form.get("category_name"),
                 "common_name": request.form.get("common_name"),
@@ -273,15 +290,16 @@ def edit_sheet(sheet_id):
                 "light": request.form.get("light"),
                 "water": request.form.get("water"),
                 "feed": request.form.get("feed"),
-                "image": request.form.get("image"),
+                "image": final_image,
                 "general_info": request.form.get("general_info"),
                 "created_by": session["user"]
             }
+            
             mongo.db.sheets.update({"_id": ObjectId(sheet_id)}, submit)
             flash("Your Sheet Has Been Sucessfully Updated")
             return redirect(url_for("get_sheets"))
-
-    return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
+        username = mongo.db.users.find_one({"username": session["user"]})["username"]
+        return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
 
 #### DELETE SHEET ####
 @app.route("/delete_sheet/<sheet_id>")

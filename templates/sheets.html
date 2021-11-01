@@ -23,7 +23,9 @@
                 <h5>{{ sheet.botanical_name }}</h5>
                 <h6>{{ sheet.category_name }}</h6>
                 <div class=" container d-flex justify-content-center sheet-image-container">
-                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" 
+                        onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'" 
+                        class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
                 </div>
 
                 
