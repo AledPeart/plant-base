@@ -83,9 +83,16 @@ def view_sheet(sheet_id):
 
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
-    username = mongo.db.users.find_one(
+
+    if "user" in session:
+        username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("view_sheet.html", username=username, sheet=sheet, categories=categories)
+
+        return render_template("view_sheet.html", username=username, sheet=sheet, categories=categories)
+    else: 
+        return render_template("view_sheet.html", sheet=sheet, categories=categories)
+
+    
 
 
 
@@ -181,17 +188,13 @@ def profile(username):
     pagination = pagination_args(sheets)
     total = len(sheets)
     
-    # if session["user"]:      
-    #     return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
-    # else:
-    #     return redirect(url_for("login"))
-    
-    if "user" in session:
-        return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
-    else: 
-        flash("Please login first")
+   # check if the user is logged in
+    if "user" not in session:
+        flash("Please Login in order to continue")
         return redirect(url_for("login"))
-
+    
+    else:
+        return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
 
 
 #### LOGOUT ####
@@ -244,11 +247,12 @@ def edit_sheet(sheet_id):
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     owner = sheet["created_by"]
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+    # username = mongo.db.users.find_one(
+    #     {"username": session["user"]})["username"]
+    
     # check if the user is logged in
     if "user" not in session:
+
         flash("Please Login in order to continue")
         return redirect(url_for("login"))
 

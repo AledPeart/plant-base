@@ -64,7 +64,7 @@
           {% if session.user %}
             <a class="mx-2" href="{{ url_for('profile', username=session['user']) }}"><i
                 class="fas user-icon title-color fa-2x fa-user"></i></a>
-            <span class="title-color">{{ username }}</span>
+            <!-- <span class="title-color">{{ username }}</span> -->
           {% else %}
             <a class="mx-2" href="{{ url_for('login') }}"><i
             class="fas user-icon title-color fa-2x fa-user-slash"></i></a>      
