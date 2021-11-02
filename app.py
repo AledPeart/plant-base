@@ -97,21 +97,14 @@ def view_sheet(sheet_id):
 
 
 # SEARCH #
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     sheets = list(mongo.db.sheets.find({"$text": {"$search": query}}))
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
-    if "user" in session:
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-        return render_template("sheets.html", username=username,
-                               sheets=sheets_paginated, pagination=pagination)
-    else:
-        return render_template("sheets.html", sheets=sheets_paginated,
-                               pagination=pagination)
-
+    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
 
 # REGISTER #
 @app.route("/register", methods=["GET", "POST"])

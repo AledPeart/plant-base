@@ -631,17 +631,17 @@ Further responsiveness testing was done using [Responsinator](http://www.respons
 
 While developing and for final checks I have validated my code using the following validation tools: 
 
-HTML - [W3C Markup](https://validator.w3.org/)
-CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
-Javascript -[JSHint]( https://jshint.com/)
-Python – [PEP8](http://pep8online.com/)
+HTML - [W3C Markup](https://validator.w3.org/)    
+CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)     
+Javascript -[JSHint]( https://jshint.com/)    
+Python – [PEP8](http://pep8online.com/)    
 
 
-![CSS](static/images/cas-validation.png) 
+![CSS](static/images/cas-validation.png)     
 
-![JSHint](static/images/jshint.png) 
+![JSHint](static/images/jshint.png)     
 
-![PEP8]( static/images/pep8-validation-check.png)     
+![PEP8]( static/images/pep8-validation-check.png)         
 
 
 
