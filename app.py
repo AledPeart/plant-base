@@ -50,6 +50,7 @@ def pagination_args(sheets):
 
 
 
+
 @app.route("/")
 
 #### HOME ####
@@ -176,7 +177,7 @@ def login():
 @app.route("/profile/<username>", methods = ["GET", "POST"])
 def profile(username):
     #grabs the session users username from the database
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]         
+             
     sheets = list(mongo.db.sheets.find({"created_by": session["user"]}))
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
@@ -188,6 +189,7 @@ def profile(username):
         return redirect(url_for("login"))
     
     else:
+        username = mongo.db.users.find_one({"username": session["user"]})["username"]
         return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
 
 
@@ -204,6 +206,8 @@ def logout():
 def add_sheet():
 
     categories = mongo.db.categories.find()
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
     # check if the user is logged in
     if "user" not in session:
@@ -212,13 +216,6 @@ def add_sheet():
 
     else:
         if request.method == "POST":
-            user_input_image = request.form.get("image")
-            accepted_image_formats = ("image/png", "image/jpeg", "image/jpg")
-            r = requests.head(user_input_image)
-            if r.headers["content-type"] in accepted_image_formats:
-                final_image = user_input_image
-            else:
-                final_image = "static/images/placeholder-image-potted.jpg"
             sheet = {
                 "category_name": request.form.get("category_name"),
                 "common_name": request.form.get("common_name"),
@@ -227,54 +224,42 @@ def add_sheet():
                 "light": request.form.get("light"),
                 "water": request.form.get("water"),
                 "feed": request.form.get("feed"),
-                "image": final_image,
+                "image": request.form.get("image"),
                 "general_info": request.form.get("general_info"),
                 "created_by": session["user"]
             }
             mongo.db.sheets.insert_one(sheet)
             flash("New Sheet Sucessfully Created")
             return redirect(url_for("get_sheets"))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+
     return render_template("add_sheet.html", username=username, categories=categories)
 
 
-###Image Validation Checks### sourec:https://stackoverflow.com/questions/10543940/check-if-a-url-to-an-image-is-up-and-exists-in-python
-# def test():
-#     print("testing")
 
 #### EDIT SHEET ####
 @app.route("/edit_sheet/<sheet_id>", methods=["GET", "POST"])
 def edit_sheet(sheet_id):
+
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     owner = sheet["created_by"]
-    # username = mongo.db.users.find_one(
-    #     {"username": session["user"]})["username"]
-    
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
     # check if the user is logged in
     if "user" not in session:
-
         flash("Please Login in order to continue")
         return redirect(url_for("login"))
 
     # then check that this user is the owner of the sheet
     elif session["user"] != owner and session["user"] != "admin":
-        flash("You do not have permission to edit this sheet")
+         flash("You do not have permission to edit this sheet")
 
-        return redirect(url_for("get_sheets"))
+         return redirect(url_for("get_sheets"))
 
     # then allow the sheet to be updated
     else:
-        if request.method == "POST":
-            user_input_image = request.form.get("image")
-            accepted_image_formats = ("image/png", "image/jpeg", "image/jpg")
-            r = requests.head(user_input_image)
-            if r.headers["content-type"] in accepted_image_formats:
-                final_image = user_input_image
-            else:
-                final_image = "static/images/placeholder-image-potted.jpg"
-
+         if request.method == "POST":
             submit = {
                 "category_name": request.form.get("category_name"),
                 "common_name": request.form.get("common_name"),
@@ -283,17 +268,17 @@ def edit_sheet(sheet_id):
                 "light": request.form.get("light"),
                 "water": request.form.get("water"),
                 "feed": request.form.get("feed"),
-                "image": final_image,
+                "image": request.form.get("image"),
                 "general_info": request.form.get("general_info"),
                 "created_by": session["user"]
             }
-            
             mongo.db.sheets.update({"_id": ObjectId(sheet_id)}, submit)
             flash("Your Sheet Has Been Sucessfully Updated")
             return redirect(url_for("get_sheets"))
-        username = mongo.db.users.find_one({"username": session["user"]})["username"]
-        return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
 
+    return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
+
+    
 #### DELETE SHEET ####
 @app.route("/delete_sheet/<sheet_id>")
 def delete_sheet(sheet_id):

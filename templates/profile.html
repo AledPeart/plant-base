@@ -26,12 +26,7 @@
                                 <h5>{{ sheet.botanical_name }}</h5>
                                 <h6>{{ sheet.category_name }}</h6>
                                 <div class=" container d-flex justify-content-center sheet-image-container">
-                                    {% if sheet.image == "" %}
-                                    <img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}"
-                                        class="sheet-image" alt="image of a {{ sheet.common_name }}">
-                                    {% else %}
-                                    <img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}">
-                                    {% endif %} 
+                                    <img src="{{ sheet.image }}" class="card-img-top view-sheet-image" onerror="this.onerror=null; this.src='/static/images/placeholder-image-potted.jpg'" alt="image of a {{ sheet.common_name }}">
                                 </div>
 
                                 <!-- <p class="card-text">{{ sheet.general_info }}</p> testing replacing with an image-->
