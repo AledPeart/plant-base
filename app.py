@@ -204,8 +204,6 @@ def logout():
 def add_sheet():
 
     categories = mongo.db.categories.find()
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
 
     # check if the user is logged in
     if "user" not in session:
@@ -236,7 +234,8 @@ def add_sheet():
             mongo.db.sheets.insert_one(sheet)
             flash("New Sheet Sucessfully Created")
             return redirect(url_for("get_sheets"))
-
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     return render_template("add_sheet.html", username=username, categories=categories)
 
 
