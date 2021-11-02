@@ -28,6 +28,7 @@ mongo = PyMongo(app)
 # https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
 # https://github.com/Edb83/self-isolution/blob/master/app.py
 
+
 def paginated(sheets):
     page, per_page, offset = get_page_args(
         page_parameter='page', per_page_parameter='per_page')
