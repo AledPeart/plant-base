@@ -227,3 +227,366 @@ if request.method == "POST":
 - 	Custom 404 and 500 error pages added to the site, with a return to site button and the site’s navigation links
 
 ![supporting screenshot](https://github.com/AledPeart/plant-base/blob/main/static/images/owner-user-story-screenshot-2.png)
+
+
+
+## Manual Functionality Testing
+
+
+### Header and Footer (base.html)
+
+#### Do the page header and footer appear and perform as expected?
+
+* __Test__– Does the page logo, navigation items and user icon appear as expected when the user is not logged in?   
+__Result__– The result was as expected.
+
+* __Test__– Does the page logo, navigation items and user icon appear as expected when the user is logged in?      
+__Result__– The result was as expected.
+
+* __Test__– Do the navigation items and social media icons appear as expected when the user is not logged in??   
+__Result__– The result was as expected.
+
+* __Test__– Do the navigation items and social media icons appear as expected when the user is logged in?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the anchor links in the page header direct the user to the correct place?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the anchor links in the page footer direct the user to the correct place?   
+__Result__– The result was as expected.
+
+* __Test__– If a user is logged in does the user icon link to the users profile page?   
+__Result__– The result was as expected.
+
+* __Test__– If a user is not logged in does the user icon link to the login page?   
+__Result__– The result was as expected.
+
+
+### Home Page (index.html)
+
+#### Does the home page appear and perform as expected?
+
+* __Test__ – Do the buttons in the text box; appear as expected when the user is not logged in?   
+__Result__– The result was as expected.
+
+* __Test__– Do the buttons in the text box; appear as expected when the user is logged in?   
+__Result__– The result was as expected.
+
+* __Test__– Do the buttons in the text box; direct the user to the correct place?   
+__Result__– The result was as expected.
+
+
+### Register Page 
+
+#### Does the register page appear and perform as expected?	
+
+* __Test__– Do the text and layout of the registration form appear as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do the appropriate icons sit before the input field name and do both sit and above the input field?   
+__Result__– The result was as expected.
+
+* __Test__– Does the instruction text sit below each input field as appropriate?   
+__Result__– The result was as expected.
+
+* __Test__– Does the expected validation check prevent users from entering a username that does not meet the required format?   
+__Result__– The result was as expected.
+
+* __Test__– Does the expected validation check prevent users from entering an email address that does not meet the required format?   
+__Result__– The result was __not__ as expected.
+
+* __Test__– Does the expected validation check prevent users from entering a password that does not meet the required format?   
+__Result__– The result was as expected.
+
+* __Test__– Does the expected validation check ensure that the users confirmation password matches the original before they can be allowed to register?   
+__Result__– The result was as expected.
+
+* __Test__– Does the show password checkbox work as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Does the login link at the bottom of the registration form link to the login page?   
+__Result__– The result was as expected.
+
+* __Test__– On successfully registering is the user given a confirmation message and directed to their profile page?   
+__Result__– The result was as expected.
+
+
+### Login Page 
+
+#### Does the login page appear and perform as expected?
+
+* __Test__– Do the text and layout of the login form appear as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do the appropriate icons sit before the input field name and do both sit and above the input field?   
+__Result__– The result was as expected.
+
+* __Test__– Does the instruction text sit below each input field as appropriate?   
+__Result__– The result was as expected
+
+* __Test__– If an incorrect username is entered does the user receive the correct flash message, and returned to the same page to try again?   
+__Result__– The result was as expected.
+
+* __Test__– If an incorrect password is entered does the user receive the correct flash message, and returned to the same page to try again?      
+__Result__– The result was as expected.
+
+* __Test__– Does the show password checkbox work as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Does the registration link at the bottom of the login form link to the registration page?   
+__Result__– The result was as expected.
+
+* __Test__– If the password and username are correct is the user given a welcome message and redirected to their profile page?   
+__Result__– The result was as expected.
+
+
+### Profile Page 
+
+#### Does the profile page appear and perform as expected?
+
+* __Test__– Does the h1 text and the user icon appear as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Does the correct username for the user in session appear in the title and in the welcome paragraph?   
+__Result__– The result was as expected.
+
+* __Test__– Does the ‘create new sheet’ button appear below the welcome paragraph and does it link to correct page?   
+__Result__– The result was as expected.
+
+* __Test__– Are the users care sheets displayed in a stacked block of 6 per page?   
+__Result__– The result was as expected.
+
+* __Test__– Do the correct plant images appear as expected in each sheet?   
+__Result__– The result was as expected.
+
+* __Test__– Does each sheet contain the correct name, botanical name and category displayed as intended?   
+__Result__– The result was as expected.
+
+* __Test__– Do only sheets created by the user in session appear?   
+__Result__– The result was as expected.
+
+* __Test__– Are the displayed sheets paginated as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do the page pagination links work correctly?   
+__Result__– The result was as expected.
+
+* __Test__– Does the ‘see more’ button open up the appropriate individual sheet as a new page?   
+__Result__– The result was as expected.
+
+
+### Sheets Page 
+
+#### Does the sheets page appear and perform as expected?
+
+* __Test__ – Does the search bar appear at the top of the page, with the search and refresh button icons as intended?   
+__Result__– The result was as expected.
+
+* __Test__– Are users able to search for plant name, botanical name and plant category as intended?   
+__Result__– The result was as expected.
+
+* __Test__– Are the search results paginated as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do the search result pagination links work as expected?   
+__Result__– The result was __not__ as expected.
+
+* __Test__– Are the users care sheets displayed 6 per page?   
+__Result__– The result was as expected.
+
+* __Test__– Do the correct plant images appear as expected in each sheet?   
+__Result__– The result was as expected.
+
+* __Test__– Does each sheet contain the correct name, botanical name and category displayed as intended?   
+__Result__– The result was as expected.
+
+* __Test__– Do sheets created by all users appear?   
+__Result__– The result was as expected.
+
+* __Test__– Are the displayed sheets paginated as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do the page pagination links work correctly?   
+__Result__– The result was as expected.
+
+* __Test__– Does the ‘see more’ button open up the appropriate individual sheet as a new page?   
+__Result__– The result was as expected.
+
+* __Test__–  Can the sheets page be viewed by users when they are logged in, and when logged out?   
+__Result__– The result was as expected.
+
+
+### View Sheet Page 
+
+#### Does the view sheet page appear and perform as expected?
+
+* __Test__ Is the page layout as expected with all the fields from the database populating the correct parts of the page as intended?   
+__Result__– The result was as expected.
+
+* __Test__– Do the icons in the quick facts section appear as intended and correspond to the correct user input?   
+__Result__– The result was as expected.
+
+* __Test__ Does the general info text appear underneath the image and does owners name appear at the bottom of the sheet–?   
+__Result__– The result was as expected.
+
+* __Test__– If the user is not logged in do they only see the button to return to the sheets page, and does that button correctly link to that page?   
+__Result__– The result was as expected.
+
+* __Test__– When the user is in session and is the sheet owner do they see the edit and delete buttons?   
+__Result__– The result was as expected.
+
+* __Test__– When the user is in session do they see the return to sheets, and return to profile buttons, and do the buttons link to the correct pages?
+   
+* __Test__– Does the Edit button link to the edit sheet form as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Does the delete button launch the delete modal?   
+__Result__– The result was as expected.
+
+
+### Add Sheet Page 
+
+#### Does the Add sheet page appear and perform as expected?
+
+* __Test__– Do the text and layout of the add sheet form appear as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the input field names sit above the input fields and correspond to the correct text information underneath the input field?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the input field names with a dropdown menu contain the correct options? 
+__Result__– The result was as expected.
+
+* __Test__– Does the submit button sit correctly centered at the foot of the form?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the user input validation checks work correctly and the appropriate corresponding messages appear if any entry is blank?   
+__Result__– The result was as expected.
+
+* __Test__–If a user does not enter valid URL are they prompted to do so and will the form not submit until one is entered?   
+__Result__– The result was as expected.
+
+* __Test__– The default image URL is loaded, as placeholder text should the user not have a URL they wish to upload?   
+__Result__– The result was as expected.
+
+* __Test__– If the user does enter a blank URL, they are allowed to do so and in this case a default image is loaded when the site is rendered.   
+__Result__– The result was as expected.
+ 
+* __Test__– If the user enters a valid image URL, the images is stored correctly and rendered to the appropriate pages.   
+__Result__– The result was as expected.
+
+* __Test__– If the user enters an invalid image URL, the images is replaced by a default image when loaded to the appropriate page.
+__Result__– The result was as expected.
+
+* __Test__– On submitting the form, does the user receive a message that their new sheet has been created, and they are returned to the sheets page?   
+__Result__– The result was as expected.
+
+* __Test__– Does the cancel button appear correctly and return the user to the sheets page?   
+__Result__– The result was as expected.
+
+
+### Edit Sheets Page 
+
+#### Does the edit sheets page appear and perform as expected?
+
+* __Test__– Do the text and layout of the add sheet form appear as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the input field names sit above the input fields and correspond to the correct text information underneath the input field?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the input field names pre populate with the correct inputs from the original sheet? 
+__Result__– The result was as expected.
+
+* __Test__– Do all the input field names with a dropdown menu contain the correct options? 
+__Result__– The result was as expected.
+
+* __Test__– Is the user able to amend the input fields as intended? 
+__Result__– The result was as expected.
+
+* __Test__– Does the submit changes button sit correctly centered at the foot of the form?   
+__Result__– The result was as expected.
+
+* __Test__– Do all the user input validation checks work correctly and the appropriate corresponding messages appear if any entry is blank?   
+__Result__– The result was as expected.
+
+* __Test__–If a user does not enter valid URL are they prompted to do so and will the form not submit until one is entered?   
+__Result__– The result was as expected.
+
+* __Test__– The default image URL is loaded, as placeholder text should the user not have a URL they wish to upload?   
+__Result__– The result was as expected.
+
+* __Test__– If the user does enter a blank URL, they are allowed to do so and in this case a default image is loaded when the site is rendered.   
+__Result__– The result was as expected.
+ 
+* __Test__– If the user enters a valid image URL, the images is stored correctly and rendered to the appropriate pages.   
+__Result__– The result was as expected.
+
+* __Test__– If the user enters an invalid image URL, the images is replaced by a default image when loaded to the appropriate page.
+__Result__– The result was as expected.
+
+* __Test__– On submitting the form the user receives a message that their new sheet has been updated, and they are returned to the sheets page?   
+__Result__– The result was as expected.
+
+* __Test__– Does the cancel button appear correctly and return the user to the sheets page?   
+__Result__– The result was as expected.
+
+
+### Delete Sheet Modal and Functionality
+
+#### Does the delete sheet modal warning appear and perform as expected?
+
+* __Test__– Do the text and layout of the delete modal appear as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Does the plant name appear correctly in the warning message?   
+__Result__– The result was as expected.
+
+* __Test__– Does the close button and the cancel icon (x) close the modal and return the user to the view sheet page without deleting the sheet?   
+__Result__– The result was as expected.
+
+* __Test__– Does the modal delete button delete the sheet and show the user a message that the sheet has been deleted?   
+__Result__– The result was as expected.
+
+* __Test__– After the sheet has been deleted is the user returned to the sheets page?   
+__Result__– The result was as expected.
+
+
+### 404 Page
+
+#### Does the 404 page load and perform as expected?
+
+* __Test__– Does the 404 page appear when user is directed to a non existent page, and is the layout as expected?      
+__Result__– The result was as expected.
+
+* __Test__ – Does the link provided send the user back to the start screen?       
+__Result__– The result was as expected.
+
+
+### Additional Functionality
+
+#### Are users able to force their way on to pages they should not be able to access?
+
+* __Test__– If the user is not logged in and they try and force their way onto the edit sheet page are they met with a message that they need to login and returned to the login page?   
+__Result__– The result was __not__ as expected.
+
+* __Test__– If the user is not logged in and they try and force their way onto the add sheet page are they met with a message that they need to login and returned to the login page?   
+__Result__– The result was as expected.
+
+* __Test__– If the user is not logged in and they try and force their way onto the delete sheet pages are they met with a message that they need to login and returned to the login page?   
+__Result__– The result was as expected.
+
+* __Test__– If the user is logged in and they try and force their way onto the delete sheet page for another users sheet, are they met with a message that they do not have permission to delete and returned to the sheets page?   
+__Result__– The result was as expected.
+
+* __Test__– If the user is logged in and they try and force their way onto the edit sheet page for another users sheet, are they met with a message that they do not have permission to edit that sheet and are then returned to the sheets page?   
+__Result__– The result was as expected.
+
+#### Flash messages - flashed messages have been tested as part of the functionality testing above, the following test is for their appearance 
+
+* __Test__– Do the flashed messages appear at the top of the screen in dark text within a yellow strap as expected?   
+__Result__– The result was as expected.
+
+* __Test__– Do the flashed messages close by themselves after the set time of 3 seconds?   
+__Result__– The result was as expected.
+
