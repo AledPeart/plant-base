@@ -206,9 +206,7 @@ def logout():
 def add_sheet():
 
     categories = mongo.db.categories.find()
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+    
     # check if the user is logged in
     if "user" not in session:
         flash("Please Login in order to continue")
@@ -231,7 +229,8 @@ def add_sheet():
             mongo.db.sheets.insert_one(sheet)
             flash("New Sheet Sucessfully Created")
             return redirect(url_for("get_sheets"))
-
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     return render_template("add_sheet.html", username=username, categories=categories)
 
 
@@ -243,8 +242,6 @@ def edit_sheet(sheet_id):
     sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     owner = sheet["created_by"]
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
 
     # check if the user is logged in
     if "user" not in session:
@@ -275,10 +272,11 @@ def edit_sheet(sheet_id):
             mongo.db.sheets.update({"_id": ObjectId(sheet_id)}, submit)
             flash("Your Sheet Has Been Sucessfully Updated")
             return redirect(url_for("get_sheets"))
-
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
 
-    
+
 #### DELETE SHEET ####
 @app.route("/delete_sheet/<sheet_id>")
 def delete_sheet(sheet_id):
