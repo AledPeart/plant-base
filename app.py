@@ -10,7 +10,7 @@ import requests
 if os.path.exists("env.py"):
     import env
 
-#Pagination sheets per page
+# Pagination sheets per page
 PER_PAGE = 6
 
 app = Flask(__name__)
@@ -21,9 +21,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-#FUNCTIONS
+# FUNCTIONS
 
-#Pagination
+# Pagination
 # https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 # https://betterprogramming.pub/simple-flask-pagination-example-4190b12c2e2e
 # https://github.com/Edb83/self-isolution/blob/master/app.py
@@ -42,88 +42,93 @@ def pagination_args(sheets):
         page_parameter='page', per_page_parameter='per_page')
     total = len(sheets)
 
-    pagination = Pagination(page=page, per_page=per_page, total=total,
-                            css_framework='bootstrap') 
+    pagination = Pagination(page=page, per_page=per_page,
+                            total=total, css_framework='bootstrap')
 
     return Pagination(page=page, per_page=PER_PAGE, total=total)
 
 
-
-
-
 @app.route("/")
-
-#### HOME ####
+# HOME
 @app.route("/home")
 def home():
     if "user" in session:
         username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+            {"username": session["user"]})["username"]
         return render_template("index.html", username=username)
     else:
         return render_template("index.html")
 
-#### GET SHEETS ####
+
+# GET SHEETS #
 @app.route("/get_sheets")
 def get_sheets():
-    sheets = list(mongo.db.sheets.find()) 
+    sheets = list(mongo.db.sheets.find())
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
     # image = request.form.get("image")
     # placeholder_image = (static)
     if "user" in session:
         username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-        return render_template("sheets.html", username=username, sheets=sheets_paginated, pagination=pagination)
-    else: 
-        return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
+            {"username": session["user"]})["username"]
+        return render_template("sheets.html", username=username,
+                               sheets=sheets_paginated, pagination=pagination)
+    else:
+        return render_template("sheets.html", sheets=sheets_paginated,
+                               pagination=pagination)
 
 
-#### VIEW SHEET####
+# VIEW SHEET #
 @app.route("/view_sheet/<sheet_id>")
 def view_sheet(sheet_id):
 
-    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+    sheet = mongo.db.sheets.find_one({"_id": ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
 
     if "user" in session:
         username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+            {"username": session["user"]})["username"]
 
-        return render_template("view_sheet.html", username=username, sheet=sheet, categories=categories)
-    else: 
-        return render_template("view_sheet.html", sheet=sheet, categories=categories)
+        return render_template("view_sheet.html", username=username,
+                               sheet=sheet, categories=categories)
+    else:
+        return render_template("view_sheet.html",
+                               sheet=sheet, categories=categories)
 
-    
-####SEARCH####
+
+# SEARCH #
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    sheets = list(mongo.db.sheets.find({"$text": {"$search": query}})) 
+    sheets = list(mongo.db.sheets.find({"$text": {"$search": query}}))
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
     if "user" in session:
         username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-        return render_template("sheets.html", username=username, sheets=sheets_paginated, pagination=pagination)
-    else: 
-        return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
+            {"username": session["user"]})["username"]
+        return render_template("sheets.html", username=username,
+                               sheets=sheets_paginated, pagination=pagination)
+    else:
+        return render_template("sheets.html", sheets=sheets_paginated,
+                               pagination=pagination)
 
 
-
-#### REGISTER ####
+# REGISTER #
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        #check if the username entered already exists in the database
+        # check if the username entered already exists in the database
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-        if existing_user: #if this variable is TRUE and that username aleady exists
+# if this variable is TRUE and that username aleady exists
+        if existing_user:
             flash("That username already exists")
-            return redirect(url_for("register")) #returns the user to the form so that hey can try again
+            return redirect(url_for("register"))
+# returns the user to the form so that they can try again
 
-        #confirms if users confirmation password matches the original Code sourced from https://code-institute-room.slack.com/archives/C7JQY2RHC/p1625910227318600
+# confirms if password matches the original Code, source:
+# https://code-institute-room.slack.com/archives/C7JQY2RHC/p1625910227318600
         password = request.form.get("password")
         confirm_password = request.form.get("confirm-password")
 
@@ -131,82 +136,88 @@ def register():
             flash("Your passwords do not match, please try again.")
             return redirect(url_for("register"))
 
-        register = {                #this is the 'else' that creates a dictionary stored in the variable 'register' to insert into the db
+# creates a dict stored in the variable 'register' to insert into the db
+        register = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password")) 
+            "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(register) 
+        mongo.db.users.insert_one(register)
 
-        #put the new user into 'session' cookie
+        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successfully Completed")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
-#### LOGIN ####
+
+# LOGIN #
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        #check if the username entered exists in the database
+        # check if the username entered exists in the database
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-        if existing_user: 
-            #if this variable is TRUE need to ensure passwords match
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+        if existing_user:
+            # if this variable is TRUE need to ensure passwords match
+            if check_password_hash(existing_user["password"],
+                                   request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                         request.form.get("username")))
                 return redirect(url_for(
                         "profile", username=session["user"]))
-            else: 
-                #invalid password match
-                flash("Incorrect username and/or password entered. Please try again.")
+            else:
+                # invalid password match
+                flash("Incorrect username and/or password entered")
                 return redirect(url_for("login"))
 
         else:
-            #username doesn't exist
-            flash("Incorrect username and/or password entered. Please try again.")
+            # username doesn't exist
+            flash("Incorrect username and/or password entered")
             return redirect(url_for("login"))
 
-    return render_template("login.html") 
+    return render_template("login.html")
 
-#### PROFILE ####
-@app.route("/profile/<username>", methods = ["GET", "POST"])
+
+# PROFILE #
+@app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    #grabs the session users username from the database
-             
+    # grabs the session users username from the database
+
     sheets = list(mongo.db.sheets.find({"created_by": session["user"]}))
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
     total = len(sheets)
-    
-   # check if the user is logged in
+
+    # check if the user is logged in
     if "user" not in session:
         flash("Please Login in order to continue")
         return redirect(url_for("login"))
-    
+
     else:
-        username = mongo.db.users.find_one({"username": session["user"]})["username"]
-        return render_template("profile.html", total=total, username=username, sheets=sheets_paginated, pagination=pagination)
+        username = mongo.db.users.find_one({"username":
+                                            session["user"]})["username"]
+        return render_template("profile.html", total=total, username=username,
+                               sheets=sheets_paginated, pagination=pagination)
 
 
-#### LOGOUT ####
-@app.route("/logout") 
+# LOGOUT #
+@app.route("/logout")
 def logout():
-    #remove user from session cookies
+    # remove user from session cookies
     flash("You have been logged out")
-    session.pop("user") 
+    session.pop("user")
     return redirect(url_for("login"))
 
-#### ADD SHEET ####
+
+# ADD SHEET #
 @app.route("/add_sheet", methods=["GET", "POST"])
 def add_sheet():
 
     categories = mongo.db.categories.find()
-    
+
     # check if the user is logged in
     if "user" not in session:
         flash("Please Login in order to continue")
@@ -231,15 +242,15 @@ def add_sheet():
             return redirect(url_for("get_sheets"))
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("add_sheet.html", username=username, categories=categories)
+    return render_template("add_sheet.html", username=username,
+                           categories=categories)
 
 
-
-#### EDIT SHEET ####
+# EDIT SHEET #
 @app.route("/edit_sheet/<sheet_id>", methods=["GET", "POST"])
 def edit_sheet(sheet_id):
 
-    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+    sheet = mongo.db.sheets.find_one({"_id": ObjectId(sheet_id)})
     categories = mongo.db.categories.find()
     owner = sheet["created_by"]
 
@@ -250,13 +261,13 @@ def edit_sheet(sheet_id):
 
     # then check that this user is the owner of the sheet
     elif session["user"] != owner and session["user"] != "admin":
-         flash("You do not have permission to edit this sheet")
+        flash("You do not have permission to edit this sheet")
 
-         return redirect(url_for("get_sheets"))
+        return redirect(url_for("get_sheets"))
 
     # then allow the sheet to be updated
     else:
-         if request.method == "POST":
+        if request.method == "POST":
             submit = {
                 "category_name": request.form.get("category_name"),
                 "common_name": request.form.get("common_name"),
@@ -274,17 +285,18 @@ def edit_sheet(sheet_id):
             return redirect(url_for("get_sheets"))
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("edit_sheet.html", username=username, sheet=sheet, categories=categories)
+    return render_template("edit_sheet.html", username=username, sheet=sheet,
+                           categories=categories)
 
 
-#### DELETE SHEET ####
+# DELETE SHEET #
 @app.route("/delete_sheet/<sheet_id>")
 def delete_sheet(sheet_id):
 
-    sheet = mongo.db.sheets.find_one({"_id":ObjectId(sheet_id)})
+    sheet = mongo.db.sheets.find_one({"_id": ObjectId(sheet_id)})
     owner = sheet["created_by"]
 
-     # check if the user is logged in
+    # check if the user is logged in
     if "user" not in session:
         flash("Please Login in order to continue")
         return redirect(url_for("login"))
@@ -295,12 +307,13 @@ def delete_sheet(sheet_id):
 
         return redirect(url_for("get_sheets"))
 
-    else: 
+    else:
         mongo.db.sheets.remove({"_id": ObjectId(sheet_id)})
         flash("Sheet Successfully Deleted")
         return redirect(url_for("get_sheets"))
 
-#### ERRORS ####
+
+# ERRORS #
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html', error=error), 404

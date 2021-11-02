@@ -51,10 +51,6 @@
     padding-left: 5px;
 }
 
-/* .navbar-nav{
-    margin: 0 auto;
-} */
-
 .nav-link {
     color: #9EC2AF !important;
 }
@@ -88,8 +84,6 @@
     }
 }
 
-
-
 /* homepage */
 
 .homepage-image {
@@ -115,7 +109,6 @@
     }
 }
 
-
 /* registration page */
 
 .my-form i {
@@ -129,7 +122,6 @@
 .form-box {
 padding: 30px 10px;
 }
-
 
 /* following media query to reduce increase the padding on this box on larger screens */
 @media screen and (min-width: 992px) {
@@ -177,7 +169,6 @@ padding: 30px 10px;
     padding: 10px
 }
 
-
 /* view sheet */
 
 .view-sheet-image {
@@ -212,7 +203,6 @@ padding: 30px 10px;
     }
 }
 
-
 .quick-facts-card i {
     padding-left: 5px;
     color: #313232;
@@ -223,6 +213,7 @@ padding: 30px 10px;
 }
 
 /* Delete sheets modal */
+
 .modal-content{
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -237,6 +228,7 @@ padding: 30px 10px;
 
 /* code altered from css tricks */
     /* bottom: px; */
+    
 .modal-header-icon {
     color: #fff !important;
     font-size: 1.8rem;

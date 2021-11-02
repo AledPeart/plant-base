@@ -590,3 +590,58 @@ __Result__– The result was as expected.
 * __Test__– Do the flashed messages close by themselves after the set time of 3 seconds?   
 __Result__– The result was as expected.
 
+##Responsiveness
+
+The site has been designed with a mobile first approach, and great care has been taken throughout the development process to ensure that the site responds well across all viewing devices. Bootstrap ‘breakpoints’ have been adhered to ensure consistency in the design layouts, and this has been extensively tested using [ChromeDevTools]( https://developer.chrome.com/docs/devtools/) both throughout development and on completion of the build. Some custom CSS media queries have been used to improve the responsiveness of the design reducing padding as appropriate and to allow some text to fit neatly within the design space as intended. e.g
+
+```
+/* following media query to reduce font size on smaller screens */
+
+@media screen and (max-width: 576px) {
+    .quick-facts-card {
+        font-size: 0.8rem;
+        padding:    0;
+    }
+}
+```
+I have tested my site across various screen widths in order to best replicate the breadth of modern viewing devices, and in line with the Bootstrap breakpoints that were used in the design, namely:
+
+Extra Small <576px
+Small 576-768px
+Medium 768-992px
+Large 992-1200px
+Extra Large >1200px
+
+Additional testing was carried out on the physical devices that I have access to:
+ 
+    A large screen desktop
+    Laptop
+        Tablet
+Mobile device
+
+And on the following browsers:
+
+    Chrome
+    Firefox
+    Safari (ios)
+
+Further responsiveness testing was done using [Responsinator](http://www.responsinator.com/)
+
+## Code Validation
+
+While developing and for final checks I have validated my code using the following validation tools: 
+
+HTML - [W3C Markup](https://validator.w3.org/)
+CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
+Javascript -[JSHint]( https://jshint.com/)
+Python – [PEP8](http://pep8online.com/)
+
+
+![CSS](static/images/cas-validation.png) 
+
+![JSHint](static/images/jshint.png) 
+
+![PEP8]( static/images/pep8-validation-check.png)     
+
+
+
