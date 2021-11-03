@@ -3,7 +3,7 @@
 
 <!-- SEACRH BAR -->
 <div class="container search-container">
-    <form class="d-flex col-lg-6 mb-4 d-flex ms-auto" action="{{ url_for('search') }}" method="post">
+    <form class="d-flex col-lg-6 mb-4 d-flex ms-auto" action="{{ url_for('search') }}" method="get">
         <input type="text" name="query" id="query" minlength="3" class="form-control rounded validate search-bar"
             placeholder="Search" required aria-label="Search" aria-describedby="search-addon" />
         <button type="submit" class="btn my-btn btn-outline-secondary" id="search-addon"><i

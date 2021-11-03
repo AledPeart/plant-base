@@ -95,14 +95,17 @@ def view_sheet(sheet_id):
 
 
 # SEARCH #
-
-@app.route("/search", methods=["GET", "POST"])
+# Get and Post methods removed and query variable changed to resolve a search bug
+# detailed in the README.md source https://github.com/Edb83/self-isolution
+@app.route("/search")
 def search():
-    query = request.form.get("query")
+    query = request.args.get("query")
     sheets = list(mongo.db.sheets.find({"$text": {"$search": query}}))
     sheets_paginated = paginated(sheets)
     pagination = pagination_args(sheets)
-    return render_template("sheets.html", sheets=sheets_paginated, pagination=pagination)
+    return render_template("sheets.html",
+                           sheets=sheets_paginated, pagination=pagination)
+
 
 # REGISTER #
 @app.route("/register", methods=["GET", "POST"])
