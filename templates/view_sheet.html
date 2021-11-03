@@ -5,8 +5,16 @@
     <div class="row">
         <!-- Image from Vecteezy.com -->
         <!-- Code source https://stackoverflow.com/questions/7995080/html-if-image-is-not-found -->
+        <!-- Code ammended from a suggestion from the CI tutor support team -->
         <div class="col-lg-8">
-            <img src="{{ sheet.image }}" class="card-img-top view-sheet-image" onerror="this.onerror=null; this.src='/static/images/placeholder-image-potted.jpg'" alt="image of a {{ sheet.common_name }}">
+            {% if sheet.image %}
+                            <img src="{{ sheet.image }}"
+                                onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'"
+                                class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
+                            {% else %}
+                            <img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}"
+                                class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
+                            {% endif %}
         </div>
         <div class="col-lg-4 quick-facts-card p-4">
             <h3 class="p-2 mb-4">Quick Facts</h3>

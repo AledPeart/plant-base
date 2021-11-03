@@ -24,32 +24,15 @@
                 <h5>{{ sheet.botanical_name }}</h5>
                 <h6>{{ sheet.category_name }}</h6>
                 <div class=" container d-flex justify-content-center sheet-image-container">
+                    <!-- Code ammended from a suggestion from the CI tutor support team -->
+                    <!-- Code source https://stackoverflow.com/questions/7995080/html-if-image-is-not-found -->
                     {% if sheet.image %} 
                         <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> 
                     {% else %} 
                         <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
                             class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
                     {% endif %}
-
-
-                    <!-- <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}"
-                            onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'"
-                            class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> -->
                 </div>
-
-                <!-- {% if sheet.image %} 
-                <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> 
-                {% else %} 
-                <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
-                    class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
-                {% endif %} -->
-
-                <!-- {% if sheet.image == "" %}
-                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
-                        class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
-                    {% else %}
-                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
-                    {% endif %} -->
 
                 <div class="row">
                     <div class="col text-center">
