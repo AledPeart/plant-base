@@ -643,6 +643,31 @@ Python – [PEP8](http://pep8online.com/)  Corrected numerous erros such as 'tra
 
 ![PEP8]( static/images/pep8-validation-check.png)  
 
+## Lighthouse Testing
+
+I have used [Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome DevTools to test the accessibility and performance of my site. The results are as follows:   
+
+Home     
+![Home](static/images/home-page-lighthouse.png)   
+Sheets     
+![Sheets](static/images/sheets-lighthouse.png)     
+Add Sheet        
+![Add Sheet](static/images/add-sheet-lighthouse.png)    
+Edit Sheet     
+![Edit Sheet](static/images/edit-sheet-lighthouse.png)    
+Login     
+![Login](static/images/login-lighthouse.png)    
+Profile     
+![Profile](static/images/profile-lighthouse.png)    
+Register     
+![Register](static/images/register-lighthouse.png)    
+View Page     
+![View Page](static/images/view-page-lighthouse.png)    
+
+ 
+
+
+
 
 ## Testing Results and Bugs
 
@@ -701,7 +726,7 @@ It was pointed out to me by my mentor that certain pages allowed users who were 
 
 ![pagination error]( static/images/pagination-search-error.png)
 
-I was receiving the above error when my search results were large enough to be paginated. I spent a lot of time trying to solve this including removing and re-installing the search indexes in MongoDB. I eventually found the solution from a fellow student on slack who had encountered the same thing on his project !( https://github.com/Edb83/self-isolution) 
+I was receiving the above error when my search results were large enough to be paginated. I spent a lot of time trying to solve this including removing and re-installing the search indexes in MongoDB. I eventually found the cause was the query not being passed through properly to the second paginated page and beyond. The solution came from a fellow student on slack who had encountered the same thing on his project !( https://github.com/Edb83/self-isolution) The solution involved redefining the query variable and in the search function to ```query = request.args.get("query")```, as well as removing the "POST" and "GET" methods completely and changing the method in the search form from "POST" to "GET".
 
 
 ### Unresolved Bugs
