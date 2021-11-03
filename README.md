@@ -212,29 +212,6 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * A more detailed user profile, that users can update e.g changing passwords
 * Comments section so that users can comment on other sheets
 
-## Technologies Used
-
-* HTML 5 – Page content and structure
-* CSS3 – Styling
-* Javascript - Interative programming
-* [JQuery](https://jquery.com/) - DOM manipulation
-* [Popper.js](https://popper.js.org/) - Dynamic positioning (Bootstrap)
-* [Bootstrap](https://getbootstrap.com/) (v4.3.1) – page layout and responsive design.
-* [Git](https://git-scm.com/) - Version control tracking
-* [Github](https://github.com/) - Project hosting
-* [Gitpod](https://www.gitpod.io/) - Development
-* [Balsamiq](https://balsamiq.com/) - Wireframes
-* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) – for site testing and debugging
-* [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for site testing
-* [Google Fonts](https://fonts.google.com/) – Typography
-* [Font Awesome](https://fontawesome.com/) – Icons
-* [Photoshop](https://www.photoshop.com/en) - Image re-sizing
-* [W3C](https://validator.w3.org/) - HTML Code validation
-* [w3C](https://jigsaw.w3.org/css-validator/) - CSS Code validation
-* [JSHint](https://jshint.com/)- JS Code validation
-* [JSONLint](https://jsonlint.com/)- JSON Code validation
-* [AutoPrefixer](https://autoprefixer.github.io/) - To ensure correct and current CSS prefixes are used.
-
 ## Testing
 You can view my separate TESTING.md file [here](TESTING.md)
 
@@ -244,6 +221,8 @@ This project was developed using [Gitpod](https://www.gitpod.io/) and was commit
 - _git add -A_ 
 - _git commit –m “commit message”_
 - _git push_
+
+The repository was then automatically deployed to Heroku. In order to do this the following steps were taken:
 
 ### Creating an env.py file
 
@@ -258,14 +237,13 @@ os.environ.setdefault("MONGO_URI", " mongodb+srv://username@clustername.gkqqu.mo
 os.environ.setdefault("MONGO_DBNAME", " your database name ") 
 
 ```
-Because it contains sensitive information it is important that your __env.py__ file is listed in your __.gitignore__ file to prevent it from being pushed to Github and being available publicly
+Because it contains sensitive information it is important that you __env.py__ file is listed in your __.gitignore__ file to prevent it from being pushed to Github and being available publicly
 
 
-### Deploying to Heroku
+### Creating Dependancies
 
 Heroku will need to know the dependencies that are required to run your application. These will be stored in a __requirements.txt__ file. In order to create this run the following command in the github terminal
 ```
-pip3 freeze --local > requirements.txt
 pip3 freeze --local > requirements.txt
 
 ```
@@ -283,6 +261,9 @@ web: python app.py
 ```
 
 * Push these 2 files to Github
+
+### Creating the Heroku App
+
 * Login to your Heroku account
 * From the Dashboard click on __new__ then click on __create new app__
 * Name your app (this needs to be lowercase and use dashes or minuses instead of spaces
@@ -303,7 +284,60 @@ SECRET_KEY		your secret key
 MONGO_URI 		mongodb+srv://username@clustername.gkqqu.mongodb.net/databasename?retryWrites=true&w=majority	
 MONGO_DBNAME	your database name
 ```
+* Now __Enable Automatic Deployment__
+* In the __Manual Deploy__ section select __Master__ from the dropdown 
+* Click __Deploy Branch__
+* After a few minutes you should see a message confirming __Your app was successfully deployed__
+* Click __Open App__ located near the top of the page to launch your app
 
+### Cloning this repository
+
+In order to clone and run this project locally, you will need to follow these steps:
+
+1. On the main repository page in __Github__, click the button to download the _Code_ (located at the top above the list of files)
+2. Under the _HTTPS_ tab copy the URL for the repository
+3. Open the Terminal in your preferred __IDE__.
+4. Change the current working directory to the location that you would like for the new cloned directory.
+5. Type _git clone_ into the terminal and then paste in the URL that you copied earlier.
+6. Hit _enter_ to create your clone.
+7. Remember that you will need to create an env.py file to store your variables as detailed above
+
+Full details of these summarised steps can be found [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+
+
+## Technologies Used
+
+* HTML 5 
+* CSS3 
+* Javascript 
+* [JQuery](https://jquery.com/) 
+* [Popper.js](https://popper.js.org/) 
+* [PIP3](https://pip.pypa.io/en/stable/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Flask-PyMongo](https://pypi.org/project/Flask-PyMongo/)
+* [dnspython](https://www.dnspython.org/)
+* [Flask-Paginate](https://pythonhosted.org/Flask-paginate/)
+* [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+* [MongoDB](https://www.mongodb.com/)
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/)
+* [RandomKeyGen](https://randomkeygen.com/)
+* [Responsinator](https://www.responsinator.com/)
+* [Bootstrap](https://getbootstrap.com/) 
+* [Git](https://git-scm.com/) 
+* [Github](https://github.com/) 
+* [Gitpod](https://www.gitpod.io/) 
+* [Heroku](https://www.heroku.com/)
+* [Balsamiq](https://balsamiq.com/) 
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+* [Google Lighthouse](https://developers.google.com/web/tools/lighthouse)
+* [Google Fonts](https://fonts.google.com/) 
+* [Font Awesome](https://fontawesome.com/) 
+* [Photoshop](https://www.photoshop.com/en) 
+* [W3C](https://validator.w3.org/) 
+* [w3C](https://jigsaw.w3.org/css-validator/) 
+* [JSHint](https://jshint.com/)
+* [AutoPrefixer](https://autoprefixer.github.io/) 
 
 
 

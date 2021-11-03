@@ -17,6 +17,6 @@ $("#flash-messages").fadeTo(3000, 500).slideUp(500, function(){
 let $homeBox = $('.home-box');
 
 $(window).resize(function() {
-  if (window.innerWidth >= 992) $homeBox.addClass('card-img-overlay');
+  if (window.innerWidth >= 768) $homeBox.addClass('card-img-overlay');
   else $homeBox.removeClass('card-img-overlay');
 });
