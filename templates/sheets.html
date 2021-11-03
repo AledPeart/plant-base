@@ -13,8 +13,8 @@
     </form>
 </div>
 
-
-<div class="row">
+<div class="container">
+    <div class="row">
     {% if sheets|length > 0 %}
     {% for sheet in sheets %}
     <div class="col-lg-6 col-xl-4">
@@ -24,10 +24,32 @@
                 <h5>{{ sheet.botanical_name }}</h5>
                 <h6>{{ sheet.category_name }}</h6>
                 <div class=" container d-flex justify-content-center sheet-image-container">
-                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}"
-                            onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'"
+                    {% if sheet.image %} 
+                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> 
+                    {% else %} 
+                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
                             class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                    {% endif %}
+
+
+                    <!-- <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}"
+                            onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'"
+                            class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> -->
                 </div>
+
+                <!-- {% if sheet.image %} 
+                <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> 
+                {% else %} 
+                <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
+                    class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                {% endif %} -->
+
+                <!-- {% if sheet.image == "" %}
+                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
+                        class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                    {% else %}
+                    <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                    {% endif %} -->
 
                 <div class="row">
                     <div class="col text-center">
@@ -45,20 +67,23 @@
         <br>
     </div>
 
+
     {% endfor %}
+</div>
+</div>
 
     <div class="text-center">
         {{ pagination.links }}
     </div>
 
-{% else %}
+    {% else %}
 
     <div class="alert alert-warning text-center" role="alert">
         Oops! nothing found, try another search, or just have
         a <a class="title-color" href="{{ url_for('get_sheets') }}">Browse</a>
     </div>
-</div>
+
+
 
 {% endif %}
 {% endblock %}
-    
