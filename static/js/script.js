@@ -1,6 +1,6 @@
 // function to show/hide password on the login/registration forms. Code taken from https://www.w3schools.com/howto/howto_js_toggle_password.asp
 function myFunction() {
-    var x = document.getElementById("password");
+    let x = document.getElementById("password");
     if (x.type === "password") {
       x.type = "text";
     } else {
@@ -14,7 +14,7 @@ $("#flash-messages").fadeTo(3000, 500).slideUp(500, function(){
 });
 
 //function to add an image-overlay box on the home page on larger devices https://stackoverflow.com/questions/29593944/css-media-query-adding-class-to-html/29594124
-var $homeBox = $('.home-box');
+let $homeBox = $('.home-box');
 
 $(window).resize(function() {
   if (window.innerWidth >= 992) $homeBox.addClass('card-img-overlay');

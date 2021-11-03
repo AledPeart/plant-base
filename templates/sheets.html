@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <!-- SEACRH BAR -->
 <div class="container search-container">
     <form class="d-flex col-lg-6 mb-4 d-flex ms-auto" action="{{ url_for('search') }}" method="post">
@@ -11,14 +10,12 @@
                 class="fas fa-search title-color"></i></button>
         <a class="btn my-btn btn-outline-secondary" href="{{ url_for('get_sheets') }}"><i
                 class="fas fa-redo title-color"></i></a>
-
     </form>
 </div>
 
 
-
-{% if sheets|length > 0 %}
 <div class="row">
+    {% if sheets|length > 0 %}
     {% for sheet in sheets %}
     <div class="col-lg-6 col-xl-4">
         <div class="card">
@@ -32,9 +29,6 @@
                             class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
                 </div>
 
-
-
-                <!-- <p class="card-text">{{ sheet.general_info }}</p> testing replacing with an image-->
                 <div class="row">
                     <div class="col text-center">
                         <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"
@@ -47,22 +41,22 @@
                     <p class="form-text">added by:{{ sheet.created_by }}</p>
                 </div>
             </div>
-
         </div>
         <br>
     </div>
+
     {% endfor %}
+
     <div class="text-center">
         {{ pagination.links }}
     </div>
 
 {% else %}
+
     <div class="alert alert-warning text-center" role="alert">
         Oops! nothing found, try another search, or just have
         a <a class="title-color" href="{{ url_for('get_sheets') }}">Browse</a>
     </div>
-    <!-- </div> -->
-    
 </div>
 
 {% endif %}

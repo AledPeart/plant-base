@@ -11,113 +11,117 @@
                 <!-- category name -->
                 <div class="mb-3">
                     <label for="category_name" class="form-label was-validated">Category Name</label>
-                    <select id="category_name" name="category_name" class="form-select validate" required aria-label="Plant category list">
+                    <select id="category_name" name="category_name" class="form-select validate" required
+                        aria-label="Plant category list">
                         <option value="" disabled>Choose a Category</option>
                         {% for category in categories %}
-                            {% if category.category_name == sheet.category_name %}
-                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option> 
-                            {% else %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option> 
-                            {% endif %}
-                        {% endfor %}         
-                      </select>
-                    </div>
+                        {% if category.category_name == sheet.category_name %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+
                 <!-- common name  -->
                 <div class="mb-3">
                     <label for="common_name" class="form-label">Plant Name</label>
-                    <input type="text" value="{{ sheet.common_name}}" name="common_name" class="form-control" id="common_name" 
-                        aria-describedby="commonPlantName" minlength="3" maxlength="50" required> 
+                    <input type="text" value="{{ sheet.common_name}}" name="common_name" class="form-control"
+                        id="common_name" aria-describedby="common_name" minlength="3" maxlength="50" required>
                     <div class="form-text">Enter the 'common name' of your plant e.g Money Plant or Spider Plant</div>
                 </div>
-                 <!-- botanical name  -->
-                 <div class="mb-3">
+
+                <!-- botanical name  -->
+                <div class="mb-3">
                     <label for="botanical_name" class="form-label">Botanical Name</label>
-                    <input type="text" value="{{ sheet.botanical_name}}" name="botanical_name" class="form-control" id="botanical_name" 
-                        aria-describedby="botanicalPlantName" minlength="3" maxlength="50" required> 
-                    <div class="form-text">Enter the 'botanical name' of your plant. Unsure? Try searching <a href="https://hortology.co.uk/" target="_blank">here</a></div>
+                    <input type="text" value="{{ sheet.botanical_name}}" name="botanical_name" class="form-control"
+                        id="botanical_name" aria-describedby="botanical_name" minlength="3" maxlength="50" required>
+                    <div class="form-text">Enter the 'botanical name' of your plant. Unsure? Try searching <a
+                            href="https://hortology.co.uk/" target="_blank">here</a></div>
                 </div>
+
                 <!--  Difficulty -->
                 <div class="mb-3">
                     <label for="difficulty" class="form-label">Difficulty</label>
-                    <select type="text" value="" id="difficulty" name="difficulty" class="form-select validate" required aria-label="Plant difficulty list">
-                        <option value="{{ sheet.difficulty}}">{{ sheet.difficulty }}</option>
+                    <select id="difficulty" name="difficulty" class="form-select validate"
+                        aria-label="Plant difficulty list">
+                        <!-- <option value="{{ sheet.difficulty}}">{{ sheet.difficulty }}</option> -->
+                        <option value="{{ sheet.difficulty }}">{{ sheet.difficulty }}</option>
                         <option value="Easy">Easy</option>
                         <option value="Moderate">Moderate</option>
-                        <option value="Difficult">Difficult</option>         
-                      </select>
-                      <div class="form-text">How difficult is it to care for this plant?</div>
-                    </div>
-                    <!--  Light -->
+                        <option value="Difficult">Difficult</option>
+                    </select>
+                    <div class="form-text">How difficult is it to care for this plant?</div>
+                </div>
+
+                <!--  Light -->
                 <div class="mb-3">
                     <label for="light" class="form-label">Light</label>
-                    <select id="light" name="light" class="form-select validate" required aria-label="Plant light list">
-                        <option value="{{ sheet.light}}">{{ sheet.light }}</option>
+                    <select id="light" name="light" class="form-select validate" aria-label="Plant light list">
+                        <option value="{{ sheet.light }}">{{ sheet.light }}</option>
                         <option value="Direct Sunlight">Direct Sunlight</option>
                         <option value="Indirect Sunlight">Indirect Sunlight</option>
-                        <option value="Shade">Shade</option>         
-                      </select>
-                      <div class="form-text">Where should you position this plant?</div>
-                    </div>
-                    <!--  Water -->
+                        <option value="Shade">Shade</option>
+                    </select>
+                    <div class="form-text">Where should you position this plant?</div>
+                </div>
+
+                <!--  Water -->
                 <div class="mb-3">
                     <label for="water" class="form-label">Water</label>
-                    <select id="water" name="water" class="form-select validate" required aria-label="Plant water list">
+                    <select id="water" name="water" class="form-select validate" aria-label="Plant water list">
                         <option value="{{ sheet.water}}">{{ sheet.water }}</option>
                         <option value="Once a Week">Once a Week</option>
                         <option value="Twice a Week">Twice a Week</option>
-                        <option value="Three Times a Week">Three Times a Week</option>         
-                      </select>
-                      <div class="form-text">How often should you water this plant?</div>
-                    </div>
-                    <!--  Feed -->
-                    <div class="mb-3">
-                        <label for="feed" class="form-label">Feed</label>
-                        <select id="feed" name="feed" class="form-select validate" required aria-label="Plant feed list">
-                            <option value="{{ sheet.feed}}">{{ sheet.feed }}</option>
-                            <option value="Once a Week">Once a Week</option>
-                            <option value="Twice a Month">Twice a Month</option>
-                            <option value="Once a Month">Once a Month</option>         
-                          </select>
-                          <div class="form-text">How often should you feed this plant?</div>
-                        </div>
+                        <option value="Three Times a Week">Three Times a Week</option>
+                    </select>
+                    <div class="form-text">How often should you water this plant?</div>
+                </div>
+                <!--  Feed -->
 
-                        <!-- image url -->
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Image URL</label>
-                            <input type="url" value="{{ sheet.image }}" name="image" class="form-control" id="image" 
-                                aria-describedby="botanicalPlantName" minlength="3" maxlength="500" > 
-                            <div class="form-text">Please provide a valid URL to an image of this plant. Ideally it will
-                                be a landscape image with a 3:2 aspect ratio.
-                                <a href="https://www.gardenersworld.com/" target="blank">Gardener's World</a> is a great
-                                source for suitable images. If your image is not suitable or not available it may be
-                                replaced with a stock image.</div>
-                        </div>
+                <div class="mb-3">
+                    <label for="feed" class="form-label">Feed</label>
+                    <select id="feed" name="feed" class="form-select validate" aria-label="Plant feed list">
+                        <option value="{{ sheet.feed}}">{{ sheet.feed }}</option>
+                        <option value="Once a Week">Once a Week</option>
+                        <option value="Twice a Month">Twice a Month</option>
+                        <option value="Once a Month">Once a Month</option>
+                    </select>
+                    <div class="form-text">How often should you feed this plant?</div>
+                </div>
 
-                        <!-- <div class="form-text">Please provide a valid URL to an image of this plant. Ideally it will
-                            be a landscape image with a 3:2 aspect ratio.
-                            <a href="https://www.gardenersworld.com/" target="blank">Gardener's World</a> is a great
-                            source for suitable images. If your image is not suitable or not available it may be
-                            replaced with a stock image.
-                        </div> -->
+                <!-- image url -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image URL</label>
+                    <input type="url" value="{{ sheet.image }}" name="image" class="form-control" id="image"
+                        aria-describedby="image" minlength="3" maxlength="500">
+                    <div class="form-text">Please provide a valid URL to an image of this plant. Ideally it will
+                        be a landscape image with a 3:2 aspect ratio.
+                        <a href="https://www.gardenersworld.com/" target="blank">Gardener's World</a> is a great
+                        source for suitable images. If your image is not suitable or not available it may be
+                        replaced with a stock image.</div>
+                </div>
 
-                     <!-- General Info -->
-                     <div class="mb-3">
-                        <label for="general_info" class="form-label">General Care Advice</label>
-                        <textarea class="form-control" id="general_info" name="general_info" rows="5" required>
+                <!-- General Info -->
+                <div class="mb-3">
+                    <label for="general_info" class="form-label">General Care Advice</label>
+                    <textarea class="form-control" id="general_info" name="general_info" rows="5" required>
                             {{- sheet.general_info -}}
                         </textarea>
-                        <div class="form-text">Here you can enter some brief notes and general guidance on caring for this plant</div>
-                      </div>
-                      
-                    <!-- Submit button -->
+                    <div class="form-text">Here you can enter some brief notes and general guidance on caring for this
+                        plant</div>
+                </div>
+
+                <!-- Submit button -->
                 <div class="d-flex justify-content-center">
-                    <a href="{{ url_for ('get_sheets') }}" class= "btn btn-outline-secondary mx-2">Cancel</a>
+                    <a href="{{ url_for ('get_sheets') }}" class="btn btn-outline-secondary mx-2">Cancel</a>
                     <button type="submit" class="btn btn-outline-secondary">Submit Changes</button>
                 </div>
             </div>
         </div>
     </div>
 </form>
-  
+
 
 {% endblock %}

@@ -295,6 +295,9 @@ __Result__– The result was as expected.
 * __Test__– Does the expected validation check prevent users from entering an email address that does not meet the required format?   
 __Result__– The result was __not__ as expected.
 
+* __Test__– Are users prevented from registering an account with a username that alreay exists and shown the appropriate warning mesage?   
+__Result__– The result was as expected.
+
 * __Test__– Does the expected validation check prevent users from entering a password that does not meet the required format?   
 __Result__– The result was as expected.
 
@@ -507,9 +510,6 @@ __Result__– The result was as expected.
 * __Test__– Does the submit changes button sit correctly centered at the foot of the form?   
 __Result__– The result was as expected.
 
-* __Test__– Do all the user input validation checks work correctly and the appropriate corresponding messages appear if any entry is blank?   
-__Result__– The result was as expected.
-
 * __Test__–If a user does not enter valid URL are they prompted to do so and will the form not submit until one is entered?   
 __Result__– The result was as expected.
 
@@ -629,17 +629,17 @@ Further responsiveness testing was done using [Responsinator](http://www.respons
 
 ## Code Validation
 
-While developing and for final checks I have validated my code using the following validation tools: 
+While developing and for final checks I have validated my code using the following validation tools. On submission no errors were shown: 
 
 HTML - [W3C Markup](https://validator.w3.org/)    
-CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)     
-Javascript -[JSHint]( https://jshint.com/)    
-Python – [PEP8](http://pep8online.com/)    
+CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)     No Errors were found         
+![CSS](static/images/cas-validation.png) 
 
+Javascript -[JSHint]( https://jshint.com/)   1 unused function warning - this function is being called but from outside the script file. I have also added *jshint esversion: 6 */ as Jshint is defaulting to an earlier version  
 
-![CSS](static/images/cas-validation.png)     
+![JSHint](static/images/jshint.png)   
 
-![JSHint](static/images/jshint.png)     
+Python – [PEP8](http://pep8online.com/)  Corrected numerous erros such as 'trailing whitespace' and reducing line length to be PEP8 compliant  
 
 ![PEP8]( static/images/pep8-validation-check.png)         
 

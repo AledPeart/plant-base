@@ -28,8 +28,6 @@
                         or if you're already registered, login to your account now. As they say, knowledge is power and sharing is caring! </p>
                     <div class="col text-center">
                         {% if session.user %}
-                        <!-- <a href="{{ url_for('logout') }}"class="btn mb-4 px-3 btn-sm btn-outline-secondary">Logout</a>
-                        <a href="{{ url_for('profile', username=session['user']) }}"class="btn mb-4 btn-sm btn-outline-secondary">Profile</a> -->
                         <a href="{{ url_for('get_sheets') }}" class="btn mb-4 btn-sm btn-outline-secondary">Browse</a>
                         <a href="{{ url_for('add_sheet') }}" class="btn mb-4 btn-sm btn-outline-secondary">Add a
                             Sheet</a>

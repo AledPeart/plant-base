@@ -8,46 +8,47 @@
                 <i class="fas fa-lg p-3 fa-user"></i>{{ username.capitalize() }}'s Profile
             </h1>
 
-            <p class="text-center">Hi {{ username }}, welcome to your profile page. This is where you can view, edit  or delete your own personal collection
+            <p class="text-center">Hi {{ username }}, welcome to your profile page. This is where you can view, edit or
+                delete your own personal collection
                 of Plant Care Sheets.
-                 If you have not created any sheets yet you can do that now</p>
-                 <div class="col text-center">
-                 <a href="{{ url_for('add_sheet') }}"class="btn mb-4 btn-sm btn-outline-secondary">Create New Sheet</a>
-                </div>
+                If you have not created any sheets yet you can do that now</p>
+            <div class="col text-center">
+                <a href="{{ url_for('add_sheet') }}" class="btn mb-4 btn-sm btn-outline-secondary">Create New Sheet</a>
+            </div>
 
-                    {{ pagination.links }}
-               
-                    {% for sheet in sheets if session.user|lower == sheet.created_by|lower %}
-                
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body shadow text-center">
-                                <h3 class="card-title title-color"><strong>{{ sheet.common_name }}</strong></h3>
-                                <h5>{{ sheet.botanical_name }}</h5>
-                                <h6>{{ sheet.category_name }}</h6>
-                                <div class=" container d-flex justify-content-center sheet-image-container">
-                                    <img src="{{ sheet.image }}" class="card-img-top view-sheet-image" onerror="this.onerror=null; this.src='/static/images/placeholder-image-potted.jpg'" alt="image of a {{ sheet.common_name }}">
-                                </div>
+            {{ pagination.links }}
 
-                                <!-- <p class="card-text">{{ sheet.general_info }}</p> testing replacing with an image-->
-                                <div class="row">
-                                    <div class="col text-center">
-                                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"
-                                            class="btn mt-2 btn-sm btn-outline-secondary">See More</a>
-                                    </div>
-                                </div>
+            {% for sheet in sheets if session.user|lower == sheet.created_by|lower %}
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body shadow text-center">
+                        <h3 class="card-title title-color"><strong>{{ sheet.common_name }}</strong></h3>
+                        <h5>{{ sheet.botanical_name }}</h5>
+                        <h6>{{ sheet.category_name }}</h6>
+                        <div class=" container d-flex justify-content-center sheet-image-container">
+                            <img src="{{ sheet.image }}" class="card-img-top view-sheet-image"
+                                onerror="this.onerror=null; this.src='/static/images/placeholder-image-potted.jpg'"
+                                alt="image of a {{ sheet.common_name }}">
+                        </div>
+
+                        <!-- <p class="card-text">{{ sheet.general_info }}</p> testing replacing with an image-->
+                        <div class="row">
+                            <div class="col text-center">
+                                <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"
+                                    class="btn mt-2 btn-sm btn-outline-secondary">See More</a>
                             </div>
                         </div>
-                        <br>
                     </div>
-                    {% endfor %}
-                
-                
-                    <div class="text-center">
-                        {{ pagination.links }}
-                        </div>
-                
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="text-center">
+                {{ pagination.links }}
+            </div>
+
+        </div>
     </div>
-    
 </div>
 {% endblock %}
