@@ -3,17 +3,15 @@
 [View deployed site here](https://plant-base-project.herokuapp.com/)
 [README.md]( https://github.com/AledPeart/plant-base/blob/main/README.md)
 
-I have tested my deployed site to ensure that it achieves the intended aims of the owner and the expectations of the users by meeting the user stories detailed in the [README.md]( https://github.com/AledPeart/plant-base/blob/main/README.md). I have also manually tested the deployed site across a number of different devices and browsers to ensure that the design, layout and functionality respond as intended. In addition the validity of my HTML, CSS, Javascript and Python code have been checked using the [W3C Markup](https://validator.w3.org/) , [CSS Validation Service](https://jigsaw.w3.org/css-validator/), [JSONLint](https://jsonlint.com/) and [pep8]( https://pypi.org/project/pep8/) . Finally I have used [Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome DevTools to test the accessibility and performance of my site. The specific tests and results are detailed below:
+I have tested my deployed site to ensure that it achieves the intended aims of the owner and the expectations of the users by meeting the user stories detailed in the [README.md]( https://github.com/AledPeart/plant-base/blob/main/README.md). I have also manually tested the deployed site across a number of different devices and browsers to ensure that the design, layout and functionality respond as intended. In addition the validity of my HTML, CSS, Javascript and Python code have been checked using the [W3C Markup](https://validator.w3.org/) , [CSS Validation Service](https://jigsaw.w3.org/css-validator/), [JSONLint](https://jsonlint.com/) and [PEP8]( https://pypi.org/project/pep8/) respectively . Finally I have used [Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome DevTools to test the accessibility and performance of my site. The specific tests and results are detailed below:
 
 ## __Table of Contents__
 1. [User Stories](#user-stories)
-2. [Owner Stories](#owner-stories)
-3. [Manual Functionality Testing](#manual-functionality-testing)
-4. [Responsiveness](#responsiveness)
-5. [Cross Browser Testing](#cross-browser-testing)
-6. [Code Validation](#code-validation)
-7. [Lighthouse Testing](#lighthouse-testing)
-8. [Testing Results and Bugs](#testing-results-and-bugs)
+2. [Manual Functionality Testing](#manual-functionality-testing)
+3. [Responsiveness](#responsiveness)
+4. [Code Validation](#code-validation)
+5. [Lighthouse Testing](#lighthouse-testing)
+6. [Testing Results and Bugs](#testing-results-and-bugs)
    - [Resolved Bugs](#resolved-bugs)
    - [Unresolved Bugs](#unresolved-bugs)
 
@@ -590,7 +588,7 @@ __Result__– The result was as expected.
 * __Test__– Do the flashed messages close by themselves after the set time of 3 seconds?   
 __Result__– The result was as expected.
 
-##Responsiveness
+## Responsiveness
 
 The site has been designed with a mobile first approach, and great care has been taken throughout the development process to ensure that the site responds well across all viewing devices. Bootstrap ‘breakpoints’ have been adhered to ensure consistency in the design layouts, and this has been extensively tested using [ChromeDevTools]( https://developer.chrome.com/docs/devtools/) both throughout development and on completion of the build. Some custom CSS media queries have been used to improve the responsiveness of the design reducing padding as appropriate and to allow some text to fit neatly within the design space as intended. e.g
 
@@ -793,7 +791,6 @@ Furthermore to prevent an empty src attribute on the image tag the following con
                             class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
                     {% endif %}
 ```
-
 
 
 

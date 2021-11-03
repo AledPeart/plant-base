@@ -46,5 +46,55 @@ Here I will address the aims and goals of the application from both the perspect
 * That if the requested page does not exist a custom page is loaded that directs the user back to the site
 
 
+### Design Objectives
+
+* Mobile first, user friendly design
+* Intuitive layout, easy to navigate
+* Minimal design asthetic to inspire a sense of 'nature' and 'calm'
+* Light airy pastel colours used to reinforce the design
+* Use of icons where applicable, but in keeping with a minmalist design asthetic
+* Design adheres to current norms and conventions e.g clear navigation, icons.
+* Accessibility – content is accessible to as many users as possible – clear text, sufficiently contrasted to the background, ‘alt’ tags and ‘aria’ labels used appropriately.
+
+### Design Choices
+
+#### Colours
+
+![Colour Pallet](static/images/colors.png) source www.coolers.co
+* The main site color will be green. In keeping with the plant theme and to adhre to a pastel pallete (#9EC2AF) 
+* The site background is white (#FFFFFF)
+* The cards and boxes will be a very light grey (#FAFAFA)
+* Button will have a  grey hover colour of (#777777)
+* In addition the flashed messages and information/warnings will use Bootstraps warning yellow (#FFC107) ![Yellow](static/images/yellow.png)
+
+#### Fonts
+
+* The majority of the site uses ![Arial](https://www.fonts.com/font/monotype/arial) for its neutral ashthetic
+* The Quick Fact Sheets will use ![Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)  in order to give a 'quick', 'informative' feeling to the user
+* Text color will be a soft black (#313232)
+
+#### Bootstrap
+
+* I have the CSS framework ![Bootstrap](https://getbootstrap.com/) to achieve a design consistency across the site. Bootstraps responsive breakpoints have been utilised to ensure the site layout is responsive across all viewports and devices 
+* Buttons - The sites buttons will all be Boostrap's 'Outline Secondary', again they have a neutrality that will compliment rather than distract from the sites color 
+* I have used Bootstrap's modals, cards, alerts and forms and responsive navbar, throughout the site to achieve a uniformity of design that is visually pleasing and responsive.
+
+### Initial Planning
+
+#### Wireframes
+
+My initial wireframes can be seen ![here](static/images/wireframes)
+
+I have largely stuck to my initial vision for the site in terms of the layout and design. Some features were not implemented due to practical time constraints. I detail this further in the 'features left to implement' section.
+
+#### Site Layout
+
+My initial layout and functionality plans can be seen ![here](static/images/site maps) These were really useful in developing and building the site. Again not all features were implemented and I elaborate on this in the features section.
+
+#### Database 
+
+I choose to use ![MongoDB](https://www.mongodb.com/) to store and access all the data for the site.  
+My database schea plans can be viewed ![here](static/images/site maps).
+Initially I had planned to have two collections, one for the plant sheets and one for users, but this was expanded to three to include a categories collection in order to better group the sheets. For the purposes of this site, categories could have been part of the sheets collections, but with an eye on future facilitate scalibility it was added as a seperate collection.  MongoDB was the right choice for my purposes as there is not a lot of relational data sets, and the flexibility it offers is key.
 
 
