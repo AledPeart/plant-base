@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="container">
+<div class="container card bg-white shadow">
     <div class="row">
-        <div class="card bg-white text-black text-center">
-            <div class="col">
-                <img src="/static/images/annie-spratt-cropped16x9.jpg" alt="image of houseplants" class="homepage-image">
-            </div>
+        <div class=" text-black col text-center">
+            <img src="/static/images/annie-spratt-cropped16x9.jpg" alt="image of houseplants" class="homepage-image">
+        </div>
+    </div>
 
-            <div class="card-img-overlay col home-box">
+            <div class="row">
+            
 
-                <div class="homepage-card-box mx-auto mt-2">
-                    <h5 class="card-title">Welcome to Plant Base</h5>
-                    <p class="card-text">
+                <div class="mx-auto col card-box mt-2">
+                    <h5 class="card-title text-center pt-2">Welcome to Plant Base</h5>
+                    <p class="card-text text-center">
                         Plant Base is an interactive web application that allows you to share your houseplant expertise with others. 
                         We have an extensive collection of plant care sheets that you can browse. If you can't find what you're looking for why not create your own.
                         Register an account today and you can start creating and uploading your own sheets to share with other users in our ever-expanding community. 
@@ -30,9 +30,10 @@
                         {% endif %}
                     </div>
                 </div>
-            </div>
+            
         </div>
-    </div>
+ 
+    
 </div>
 
 {% endblock %}

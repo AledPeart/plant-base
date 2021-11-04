@@ -81,7 +81,7 @@
 
 .social-footer i {
     padding: 10px;
-    margin-top: 2em;
+    margin-top: 1em;
     color: #9EC2AF;
 }
 
@@ -232,16 +232,18 @@ padding: 30px 10px;
 .modal-content{
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .modal-header {
     background-color: #ffc107;
 }
 
 .modal-title {
-    color: #fff;   
+    color: #fff;
+    
 }
 
 /* code altered from css tricks */
+
+    
 .modal-header-icon {
     color: #fff !important;
     font-size: 1.8rem;
