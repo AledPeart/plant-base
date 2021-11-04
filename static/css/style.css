@@ -38,8 +38,6 @@ a:hover {
     color: #313232;
 }
 
-
-
 /* page header */
 
 .header-strap p{
@@ -247,9 +245,8 @@ padding: 30px 10px;
     
 }
 
-/* code altered from css tricks */
+/* following code altered from css tricks https://css-tricks.com  */
 
-    
 .modal-header-icon {
     color: #fff !important;
     font-size: 1.8rem;

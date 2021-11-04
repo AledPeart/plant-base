@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <form class="my-form" method="POST" action="{{ url_for('edit_sheet', sheet_id=sheet._id) }}">
     <div class="container">
         <div class="row justify-content-center">
@@ -78,8 +77,8 @@
                     </select>
                     <div class="form-text">How often should you water this plant?</div>
                 </div>
-                <!--  Feed -->
 
+                <!--  Feed -->
                 <div class="mb-3">
                     <label for="feed" class="form-label">Feed</label>
                     <select id="feed" name="feed" class="form-select validate" aria-label="Plant feed list">
@@ -102,11 +101,11 @@
                 <!-- General Info -->
                 <div class="mb-3">
                     <label for="general_info" class="form-label">General Care Advice</label>
-                    <textarea class="form-control" id="general_info" name="general_info" rows="5" required>
+                    <textarea class="form-control" id="general_info" name="general_info" rows="5" minlength="3" maxlength="2000" required>
                             {{- sheet.general_info -}}
                         </textarea>
                     <div class="form-text">Here you can enter some brief notes and general guidance on caring for this
-                        plant</div>
+                        plant(max. 2000 characters)</div>
                 </div>
 
                 <!-- Submit button -->
@@ -118,6 +117,5 @@
         </div>
     </div>
 </form>
-
 
 {% endblock %}

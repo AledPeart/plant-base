@@ -76,8 +76,8 @@ def get_sheets():
                                pagination=pagination)
 
 
-# VIEW SHEET #
 @app.route("/view_sheet/<sheet_id>")
+# VIEW SHEET #
 def view_sheet(sheet_id):
 
     sheet = mongo.db.sheets.find_one({"_id": ObjectId(sheet_id)})
@@ -94,10 +94,10 @@ def view_sheet(sheet_id):
                                sheet=sheet, categories=categories)
 
 
-# SEARCH #
-# Get and Post methods removed and query variable changed to resolve a search bug
-# detailed in the README.md source https://github.com/Edb83/self-isolution
 @app.route("/search")
+# SEARCH #
+# Get and Post methods removed and variable changed to resolve a search bug
+# detailed in the README.md source https://github.com/Edb83/self-isolution
 def search():
     query = request.args.get("query")
     sheets = list(mongo.db.sheets.find({"$text": {"$search": query}}))
@@ -107,8 +107,8 @@ def search():
                            sheets=sheets_paginated, pagination=pagination)
 
 
-# REGISTER #
 @app.route("/register", methods=["GET", "POST"])
+# REGISTER #
 def register():
     if request.method == "POST":
         # check if the username entered already exists in the database
@@ -175,8 +175,8 @@ def login():
     return render_template("login.html")
 
 
-# PROFILE #
 @app.route("/profile/<username>", methods=["GET", "POST"])
+# PROFILE #
 def profile(username):
     # grabs the session users username from the database
 
@@ -197,8 +197,8 @@ def profile(username):
                                sheets=sheets_paginated, pagination=pagination)
 
 
-# LOGOUT #
 @app.route("/logout")
+# LOGOUT #
 def logout():
     # remove user from session cookies
     flash("You have been logged out")
@@ -206,8 +206,8 @@ def logout():
     return redirect(url_for("login"))
 
 
-# ADD SHEET #
 @app.route("/add_sheet", methods=["GET", "POST"])
+# ADD SHEET #
 def add_sheet():
 
     categories = mongo.db.categories.find()
@@ -240,8 +240,8 @@ def add_sheet():
                            categories=categories)
 
 
-# EDIT SHEET #
 @app.route("/edit_sheet/<sheet_id>", methods=["GET", "POST"])
+# EDIT SHEET #
 def edit_sheet(sheet_id):
 
     sheet = mongo.db.sheets.find_one({"_id": ObjectId(sheet_id)})
@@ -283,8 +283,8 @@ def edit_sheet(sheet_id):
                            categories=categories)
 
 
-# DELETE SHEET #
 @app.route("/delete_sheet/<sheet_id>")
+# DELETE SHEET #
 def delete_sheet(sheet_id):
 
     sheet = mongo.db.sheets.find_one({"_id": ObjectId(sheet_id)})

@@ -6,34 +6,32 @@
             <img src="/static/images/annie-spratt-cropped16x9.jpg" alt="image of houseplants" class="homepage-image">
         </div>
     </div>
-
-            <div class="row">
-            
-
-                <div class="mx-auto col col-lg-8 card-box mt-2">
-                    <h5 class="card-title text-center pt-2">Welcome to Plant Base</h5>
-                    <p class="card-text text-center">
-                        Plant Base is an interactive web application that allows you to share your houseplant expertise with others. 
-                        We have an extensive collection of plant care sheets that you can browse. If you can't find what you're looking for why not create your own.
-                        Register an account today and you can start creating and uploading your own sheets to share with other users in our ever-expanding community. 
-                        Knowledge is power and sharing is caring (as they say!) So what are you waiting for, sign up for an account today, 
-                        or if you're already registered, login to your account now. As they say, knowledge is power and sharing is caring! </p>
-                    <div class="col text-center">
-                        {% if session.user %}
-                        <a href="{{ url_for('get_sheets') }}" class="btn mb-4 btn-sm btn-outline-secondary">Browse</a>
-                        <a href="{{ url_for('add_sheet') }}" class="btn mb-4 btn-sm btn-outline-secondary">Add a
-                            Sheet</a>
-                        {% else %}
-                        <a href="{{ url_for('login') }}" class="btn mb-4 px-3 btn-sm btn-outline-secondary">Login</a>
-                        <a href="{{ url_for('register') }}" class="btn mb-4 btn-sm btn-outline-secondary">Register</a>
-                        <a href="{{ url_for('get_sheets') }}" class="btn mb-4 btn-sm btn-outline-secondary">Browse</a>
-                        {% endif %}
-                    </div>
-                </div>
-            
+    <div class="row">
+        <div class="mx-auto col col-lg-8 card-box mt-2">
+            <h5 class="card-title text-center pt-2">Welcome to Plant Base</h5>
+            <p class="card-text text-center">
+                Plant Base is an interactive web application that allows you to share your houseplant expertise with
+                others.
+                We have an extensive collection of plant care sheets that you can browse. If you can't find what you're
+                looking for why not create your own.
+                Register an account today and you can start creating and uploading your own sheets to share with other
+                users in our ever-expanding community.
+                Knowledge is power and sharing is caring (as they say!) So what are you waiting for, sign up for an
+                account today,
+                or if you're already registered, login to your account now. As they say, knowledge is power and sharing
+                is caring! </p>
+            <div class="col text-center">
+                {% if session.user %}
+                <a href="{{ url_for('get_sheets') }}" class="btn mb-4 btn-sm btn-outline-secondary">Browse</a>
+                <a href="{{ url_for('add_sheet') }}" class="btn mb-4 btn-sm btn-outline-secondary">Add a Sheet</a>
+                {% else %}
+                <a href="{{ url_for('login') }}" class="btn mb-4 px-3 btn-sm btn-outline-secondary">Login</a>
+                <a href="{{ url_for('register') }}" class="btn mb-4 btn-sm btn-outline-secondary">Register</a>
+                <a href="{{ url_for('get_sheets') }}" class="btn mb-4 btn-sm btn-outline-secondary">Browse</a>
+                {% endif %}
+            </div>
         </div>
- 
-    
+    </div>
 </div>
 
 {% endblock %}

@@ -626,7 +626,7 @@ Further responsiveness testing was done using [Responsinator](http://www.respons
 
 ## Code Validation
 
-While developing and for final checks I have validated my code using the following validation tools. On submission no errors were shown: 
+While developing and for final checks I have validated my code using the following validation tools. On submission no errors were showing: 
 
 HTML - [W3C Markup](https://validator.w3.org/)    
 CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)     No Errors were found         

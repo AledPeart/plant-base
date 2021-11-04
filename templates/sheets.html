@@ -15,58 +15,58 @@
 
 <div class="container">
     <div class="row">
-    {% if sheets|length > 0 %}
-    {% for sheet in sheets %}
-    <div class="col-lg-6 col-xl-4">
-        <div class="card">
-            <div class="card-body shadow text-center">
-                <h3 class="card-title title-color"><strong>{{ sheet.common_name }}</strong></h3>
-                <h5>{{ sheet.botanical_name }}</h5>
-                <h6>{{ sheet.category_name }}</h6>
-                <div class=" container d-flex justify-content-center sheet-image-container">
-                    <!-- Code ammended based on a suggestion from the CI tutor support team -->
-                    <!-- Code source https://stackoverflow.com/questions/7995080/html-if-image-is-not-found -->
-                    {% if sheet.image %} 
-                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}" onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'" class="sheet-image" alt="image of a {{ sheet.common_name }}"></a> 
-                    {% else %} 
-                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}" 
-                            class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
-                    {% endif %}
-                </div>
+        {% if sheets|length > 0 %}
+        {% for sheet in sheets %}
+        <div class="col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body shadow text-center">
+                    <h3 class="card-title title-color"><strong>{{ sheet.common_name }}</strong></h3>
+                    <h5>{{ sheet.botanical_name }}</h5>
+                    <h6>{{ sheet.category_name }}</h6>
+                    <div class=" container d-flex justify-content-center sheet-image-container">
+                        <!-- Code ammended based on a suggestion from the CI tutor support team -->
+                        <!-- Code source https://stackoverflow.com/questions/7995080/html-if-image-is-not-found -->
+                        {% if sheet.image %}
+                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img src="{{ sheet.image }}"
+                                onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'"
+                                class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                        {% else %}
+                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"><img
+                                src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}"
+                                class="sheet-image" alt="image of a {{ sheet.common_name }}"></a>
+                        {% endif %}
+                    </div>
 
-                <div class="row">
-                    <div class="col text-center">
-                        <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"
-                            class="btn mt-2 btn-sm btn-outline-secondary">See More</a>
+                    <div class="row">
+                        <div class="col text-center">
+                            <a href="{{ url_for('view_sheet', sheet_id=sheet._id) }}"
+                                class="btn mt-2 btn-sm btn-outline-secondary">See More</a>
+                        </div>
+                    </div>
+
+                    <!-- Added  By -->
+                    <div class="div text-end">
+                        <p class="form-text">added by:{{ sheet.created_by }}</p>
                     </div>
                 </div>
-
-                <!-- Added  By -->
-                <div class="div text-end">
-                    <p class="form-text">added by:{{ sheet.created_by }}</p>
-                </div>
             </div>
+            <br>
         </div>
-        <br>
+
+        {% endfor %}
     </div>
-
-
-    {% endfor %}
-</div>
 </div>
 
-    <div class="text-center">
-        {{ pagination.links }}
-    </div>
+<div class="text-center">
+    {{ pagination.links }}
+</div>
 
-    {% else %}
+{% else %}
 
-    <div class="alert alert-warning text-center" role="alert">
-        Oops! nothing found, try searching for the plant name or botanical name, or just have
-        a <a class="title-color" href="{{ url_for('get_sheets') }}">Browse</a>
-    </div>
-
-
+<div class="alert alert-warning text-center" role="alert">
+    Oops! nothing found, try searching for the plant name or botanical name, or just have
+    a <a class="title-color" href="{{ url_for('get_sheets') }}">Browse</a>
+</div>
 
 {% endif %}
 {% endblock %}
