@@ -165,6 +165,8 @@ __Categories Collection__
 * Footer navigation menu shows key navigation items so users can easily navigate from the bottom of the page
 
 ### Home page
+
+![Home Page](static/images/Features/features-1.png)
 * Simple clean design
 * Welcome paragraph, introduces the features of the site to users
 * Buttons to get users on their way, buttons change depending on wheteher the user is logged in
@@ -201,6 +203,9 @@ __Categories Collection__
 * Button to view each sheet in more detail
 
 ### View Sheet Page
+
+![Home Page](static/images/Features/features-3.png)
+
 * Plant image on the left of the screen
 * Quick facts card shown on the right
 * Plant care information summarised in succinct easily digestible fashion
@@ -222,6 +227,9 @@ __Categories Collection__
 * Backend checks prevent a user accessing this page if they are not logged in
 
 ### Edit Sheet Page
+
+![Home Page](static/images/Features/features-4.png)
+
 * Neat and convenient form for users to update an existing sheet
 * Input fields pre-populated with the existing sheet information
 * Clearly labelled input fields
@@ -241,6 +249,8 @@ __Categories Collection__
 * Option to cancel and return to the view sheet page
 
 ### Sheets Page
+
+![Sheets Page](static/images/Features/features-2.png)
 * All sheets laid out on summary cards in a responsive layout.
 * Pagination prevents the page from being cluttered 
 * Pagination lnks allow user to scroll through the pages.
