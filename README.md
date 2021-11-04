@@ -87,11 +87,11 @@ Here I will address the aims and goals of the application from both the perspect
 #### Colours
 
 ![Colour Pallet](static/images/colors.png) source www.coolers.co
-* The main site color will be green. In keeping with the plant theme and to adhre to a pastel pallete (#9EC2AF) 
+* The main site color will be green. In keeping with the plant theme and to adhere to a pastel pallet (#9EC2AF) 
 * The site background is white (#FFFFFF)
 * The cards and boxes will be a very light grey (#FAFAFA)
 * Button will have a  grey hover colour of (#777777)
-* In addition the flashed messages and information/warnings will use Bootstraps warning yellow (#FFC107)    
+* In addition, the flashed messages and information/warnings will use Bootstraps warning yellow (#FFC107)    
  ![Yellow](static/images/yellow.png)
 
 #### Fonts
@@ -102,8 +102,8 @@ Here I will address the aims and goals of the application from both the perspect
 
 #### Bootstrap
 
-* I have the CSS framework [Bootstrap](https://getbootstrap.com/) to achieve a design consistency across the site. Bootstraps responsive breakpoints have been utilised to ensure the site layout is responsive across all viewports and devices 
-* Buttons - The sites buttons will all be Boostrap's 'Outline Secondary', again they have a neutrality that will compliment rather than distract from the sites color 
+* I have used the CSS framework [Bootstrap](https://getbootstrap.com/) to achieve a design consistency across the site. Bootstrap's responsive breakpoints have been utilised to ensure the site layout is responsive across all viewports and devices 
+* Buttons - The sites buttons will all be Boostrap's 'Outline Secondary', again they have a neutrality that will compliment rather than distract from the site's color 
 * I have used Bootstrap's modals, cards, alerts and forms and responsive navbar, throughout the site to achieve a uniformity of design that is visually pleasing and responsive.
 
 ## Initial Planning
@@ -112,7 +112,7 @@ Here I will address the aims and goals of the application from both the perspect
 
 My initial wireframes can be seen [here](static/images/wireframes)
 
-I have largely stuck to my initial vision for the site in terms of the layout and design. Some features were not implemented due to practical time constraints. I detail this further in the 'features left to implement' section.
+I have largely stuck to my initial vision for the site in terms of the layout and design. Some features were not implemented due to practical time constraints, and some things were changed following testing. I detail this further in the 'Features left to implement' and 'Testing' section.
 
 ### Site Layout
 
@@ -433,7 +433,7 @@ Full details of these summarised steps can be found [here](https://docs.github.c
 * Content [Gardeneres World](https://www.gardenersworld.com/)
 * Content [RHS](https://www.rhs.org.uk/)
 * Content [TheSpruce](www.thespruce.com)
-* Content [Gerdening Know How](https://www.gardeningknowhow.com/)
+* Content [Gardening Know How](https://www.gardeningknowhow.com/)
 
 
 ## Acknowledgements

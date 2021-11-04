@@ -144,7 +144,7 @@ I have tested my deployed site to ensure that it achieves the intended aims of t
 - 	Navigation bar situated at both the top and the bottom of each page
 - 	Navigation buttons provided at key locations to aid user navigation
 
-### **I would like to the site to use icons that help me to quickly understand the information being presented to me**
+### **I would like the site to use icons that help me to quickly understand the information being presented to me**
 
 ![supporting screenshot](https://github.com/AledPeart/plant-base/blob/main/static/images/registered-user-story-screenshot-8.png)
 
@@ -628,8 +628,8 @@ Further responsiveness testing was done using [Responsinator](http://www.respons
 
 While developing and for final checks I have validated my code using the following validation tools. On submission no errors were showing: 
 
-HTML - [W3C Markup](https://validator.w3.org/)    
-CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)     No Errors were found         
+HTML - [W3C Markup](https://validator.w3.org/)  No Errors Found  
+CSS - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)             
 ![CSS](static/images/cas-validation.png) 
 
 Javascript -[JSHint]( https://jshint.com/)   1 unused function warning - this function is being called but from outside the script file. I have also added *jshint esversion: 6 */ as Jshint is defaulting to an earlier version  
