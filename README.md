@@ -122,8 +122,35 @@ These were really useful in developing and building the site. Again not all feat
 ### Database 
 
 I choose to use [MongoDB](https://www.mongodb.com/) to store and access all the data for the site.  
-My database schea plans can be viewed [here](static/images/site_maps).
-Initially I had planned to have two collections, one for the plant sheets and one for users, but this was expanded to three to include a categories collection in order to better group the sheets. For the purposes of this site, categories could have been part of the sheets collections, but with an eye on future facilitate scalibility it was added as a seperate collection.  MongoDB was the right choice for my purposes as there is not a lot of relational data sets, and the flexibility it offers is key.
+My database schema plans can be viewed [here](static/images/site_maps).
+Initially I had planned to have two collections, one for the plant sheets and one for users, but this was expanded to three to include a categories collection in order to better group the sheets. For the purposes of this site, categories could have been part of the sheets collections, but with a view to allow future scalibility it was added as a seperate collection.  MongoDB was the right choice for my purposes as there is not a lot of relational data sets, and the flexibility it offers is key.
+
+__Sheets Collection__
+| id             	| ObjectId 	|
+|----------------	|----------	|
+| Category name  	| string   	|
+| Image          	| string   	|
+| Common Name    	| string   	|
+| Botanical Name 	| string   	|
+| Difficulty     	| string   	|
+| Light          	| string   	|
+| Water          	| string   	|
+| Feed           	| string   	|
+| General Info   	| string   	|
+| Created By     	| string   	|
+
+__Users Collection__
+| id       	| ObjectId 	|
+|----------	|----------	|
+| Username 	| string   	|
+| Password 	| string   	|
+| Email    	| string   	|
+
+__Categories Collection__
+| id            	| ObjectId 	|
+|---------------	|----------	|
+| Category Name 	| string   	|
+
 
 ## Features
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
@@ -396,7 +423,7 @@ Full details of these summarised steps can be found [here](https://docs.github.c
 * Content [Gardeneres World](https://www.gardenersworld.com/)
 * Content [RHS](https://www.rhs.org.uk/)
 * Content [TheSpruce](www.thespruce.com)
-* Content [TheSpruce](https://www.gardeningknowhow.com/)
+* Content [Gerdening Know How](https://www.gardeningknowhow.com/)
 
 
 ## Acknowledgements
