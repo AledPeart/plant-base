@@ -604,18 +604,18 @@ The site has been designed with a mobile first approach, and great care has been
 ```
 I have tested my site across various screen widths in order to best replicate the breadth of modern viewing devices, and in line with the Bootstrap breakpoints that were used in the design, namely:
 
-Extra Small <576px
-Small 576-768px
-Medium 768-992px
-Large 992-1200px
-Extra Large >1200px
+    Extra Small <576px
+    Small 576-768px
+    Medium 768-992px
+    Large 992-1200px
+    Extra Large >1200px
 
 Additional testing was carried out on the physical devices that I have access to:
  
     A large screen desktop
     Laptop
-        Tablet
-Mobile device
+    Tablet
+    Mobile device
 
 And on the following browsers:
 
@@ -673,7 +673,26 @@ I was regularly testing my code during the development process and as such a num
 
 ### Resolved Bugs
 
+#### Homepage image overlay issue
+
+My original design for the homepage had a text box sitting on top of an image. The following Javascript function was written to ensure that on smaller devices my text box would sit underneath the homepage image by removing the Bootstrap overlay class
+```
+let $homeBox = $('.home-box');
+
+$(window).resize(function() {
+  if (window.innerWidth >= 992) $homeBox.addClass('card-img-overlay');
+  else $homeBox.removeClass('card-img-overlay');
+});
+
+```
+This appeared to work, and when testing my site's layout and responsiveness on DevTools I did not find any issues, however on a physical mobile device, sometimes the text box would cover the main image completely. If the phone was rotated then the issue would resolve itself. I also saw this issue when testing with Responsinator.
+
+![image Overlay Screenshot](static/images/image-overlay-issue.png)
+
+Ideally, and with the luxury of more time, I would like to havbe resolved this issue, but I have had to ensure that the mobile homepage renders correctly by re-writing the HTML/CSS, so that the text now sits permanently below the image. 
+
 #### Validation Issue - email address
+
 This error was caught while manually testing the functionality of my registration form. I had not set the ‘type = email’, instead it was set to ‘text’ so was not requiring the user to input their email in an accepted format. This was a straightforward fix.
 
 #### Displaying the username next to the user icon in the navigation bar.
