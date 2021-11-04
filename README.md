@@ -1,4 +1,8 @@
 README.md
+![Planr Base Mockup](static/images/am_I_responsive.png)
+
+
+[View deployed site here](http://plant-base-project.herokuapp.com/home)
 
 ## Introduction
 The last 18 months have seen many of us confined to our homes for extended periods of time, and increasingly our homes are in urban settings with little or no green outside space. These are some of the reasons attributed to a recent surge in interest in houseplants. There are numerous benefits to keeping houseplants: they are relatively inexpensive; they allow us to connect with nature, they satisfy our primal urges to care and nurture, and in the uncertain times created by the global pandemic, they offer a sense of calm reassurance to many people. Best of all, you can talk to them  (and of course, they don’t answer you back!)
