@@ -227,7 +227,7 @@ if request.method == "POST":
 ![supporting screenshot](https://github.com/AledPeart/plant-base/blob/main/static/images/owner-user-story-screenshot-2.png)
 
 
-
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
 ## Manual Functionality Testing
 
 
@@ -586,7 +586,7 @@ __Result__– The result was as expected.
 __Result__– The result was as expected.
 
 * __Test__– Do the flashed messages close by themselves after the set time of 3 seconds?   
-__Result__– The result was as expected.
+__Result__– The result was as expected.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
 
 ## Responsiveness
 
@@ -662,12 +662,9 @@ Register
 View Page     
 ![View Page](static/images/view-page-lighthouse.png)    
 
- 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
 
-
-
-
-## Testing Results and Bugs
+## Testing Results and Bugs 
 
 I was regularly testing my code during the development process and as such a number of bugs and errors were found and fixed that way. I have detailed the more significant ones here, and those that were found during testing, as well as some that are as yet unresolved.
 
@@ -746,8 +743,8 @@ It was pointed out to me by my mentor that certain pages allowed users who were 
 I was receiving the above error when my search results were large enough to be paginated. I spent a lot of time trying to solve this including removing and re-installing the search indexes in MongoDB. I eventually found the cause was the query not being passed through properly to the second paginated page and beyond. The solution came from a fellow student on slack who had encountered the same thing on his project !( https://github.com/Edb83/self-isolution) The solution involved redefining the query variable and in the search function to ```query = request.args.get("query")```, as well as removing the "POST" and "GET" methods completely and changing the method in the search form from "POST" to "GET".
 
 
-### Unresolved Bugs
-
+### Unresolved Bugs 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
 #### Image URL Validation
 
 A huge learning experience for me as part of this project has been attempting to implement effective validation of the user inputted image URLs. The challenges were threefold. Firstly to ensure that the users were inputting a valid URL, secondly that the URL was linked to an actual image, and if it was not (if it was broken for example or if there were an error) to ensure that a default placeholder image was loaded. 

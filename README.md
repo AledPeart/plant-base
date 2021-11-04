@@ -1,8 +1,30 @@
-README.md
-![Planr Base Mockup](static/images/am_I_responsive.png)
+# Plant Base    
+![Plant Base Mockup](static/images/am_I_responsive.png)
 
 
 [View deployed site here](http://plant-base-project.herokuapp.com/home)
+
+## __Table of Contents__
+1. [Introduction](#introduction)
+2. [User Experience](#user-experience)
+3. [User Experience](#user-experience)
+   - [User Stories](#user-stories)
+   - [Design Objectives](#design-objectives)
+   - [Design Choices](#design-choices)
+
+4. [Initial Planning](#initial-planning)
+   - [Wireframes](#wireframes)
+   - [Site Layout](#site-layout)
+   - [Database](#database)
+
+5. [Features](features)
+6. [Features left to implement](#features-left-to-implement)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+9. [Technologies Used](#technologies-used)
+10. [Credits](#credits)
+11. [Media and Content](#media-and-content)
+12. [Acknowledgements](#acknowledgements)
 
 ## Introduction
 The last 18 months have seen many of us confined to our homes for extended periods of time, and increasingly our homes are in urban settings with little or no green outside space. These are some of the reasons attributed to a recent surge in interest in houseplants. There are numerous benefits to keeping houseplants: they are relatively inexpensive; they allow us to connect with nature, they satisfy our primal urges to care and nurture, and in the uncertain times created by the global pandemic, they offer a sense of calm reassurance to many people. Best of all, you can talk to them  (and of course, they don’t answer you back!)
@@ -84,28 +106,28 @@ Here I will address the aims and goals of the application from both the perspect
 * Buttons - The sites buttons will all be Boostrap's 'Outline Secondary', again they have a neutrality that will compliment rather than distract from the sites color 
 * I have used Bootstrap's modals, cards, alerts and forms and responsive navbar, throughout the site to achieve a uniformity of design that is visually pleasing and responsive.
 
-### Initial Planning
+## Initial Planning
 
-#### Wireframes
+### Wireframes
 
 My initial wireframes can be seen [here](static/images/wireframes)
 
 I have largely stuck to my initial vision for the site in terms of the layout and design. Some features were not implemented due to practical time constraints. I detail this further in the 'features left to implement' section.
 
-#### Site Layout
+### Site Layout
 
 My initial layout and functionality plans can be seen [here](static/images/site_maps).
 These were really useful in developing and building the site. Again not all features were implemented and I elaborate on this in the features section.
 
-#### Database 
+### Database 
 
 I choose to use [MongoDB](https://www.mongodb.com/) to store and access all the data for the site.  
 My database schea plans can be viewed [here](static/images/site_maps).
 Initially I had planned to have two collections, one for the plant sheets and one for users, but this was expanded to three to include a categories collection in order to better group the sheets. For the purposes of this site, categories could have been part of the sheets collections, but with an eye on future facilitate scalibility it was added as a seperate collection.  MongoDB was the right choice for my purposes as there is not a lot of relational data sets, and the flexibility it offers is key.
 
-### Features
-
-#### Site Header and Footer
+## Features
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
+### Site Header and Footer
 * Strap at the top of the site to frame he page and to deliver a headline of the sites aim
 * Site logo in the top left that links to the home page
 * Navigation menu - items change dependent on whether the user is logged in
@@ -265,7 +287,7 @@ web: python app.py
 ```
 
 * Push these 2 files to Github
-
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
 ### Creating the Heroku App
 
 * Login to your Heroku account
@@ -309,7 +331,6 @@ In order to clone and run this project locally, you will need to follow these st
 Full details of these summarised steps can be found [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
 
-
 ## Technologies Used
 
 * HTML 5 
@@ -342,8 +363,7 @@ Full details of these summarised steps can be found [here](https://docs.github.c
 * [w3C](https://jigsaw.w3.org/css-validator/) 
 * [JSHint](https://jshint.com/)
 * [AutoPrefixer](https://autoprefixer.github.io/) 
-
-
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
 
 ## Credits
 
@@ -355,6 +375,8 @@ Full details of these summarised steps can be found [here](https://docs.github.c
   * [Bootstrap](https://getbootstrap.com/)
   * [Stack Overflow](https://stackoverflow.com/) - (specific credits have been added as comment in the code)
   * [MDN](https://developer.mozilla.org/en-US/)
+  * [Flask Paginate](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9)
+  * [Flask Documents](https://flask.palletsprojects.com/en/1.1.x/)
   * Duckett, J. 2011. HTML and CSS: Design and Build Websites. John Wiley & Sons Inc.
   * Duckett, J. 2014. Javascript & JQuery. John Wiley & Sons Inc.
 
@@ -370,6 +392,10 @@ Full details of these summarised steps can be found [here](https://docs.github.c
 * Audio [Zapsplat](https://www.zapsplat.com/)
 * Color choice [Colorhunt](https://colorhunt.co/)
                [Coolers] (https://www.coolers.co)
+* Content [Gardeneres World](https://www.gardenersworld.com/)
+* Content [RHS](https://www.rhs.org.uk/)
+* Content [TheSpruce](www.thespruce.com)
+
 
 ## Acknowledgements
 
@@ -380,4 +406,4 @@ Full details of these summarised steps can be found [here](https://docs.github.c
                           - [CocktailHour](https://github.com/AmyOShea/MS3-Cocktail-Hour)
 * Slack forums/webinars 
 
-
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
