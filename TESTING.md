@@ -1,6 +1,5 @@
 # Plant Base - Testing 
 
-[View deployed site here](https://plant-base-project.herokuapp.com/)
 [README.md]( https://github.com/AledPeart/plant-base/blob/main/README.md)
 
 I have tested my deployed site to ensure that it achieves the intended aims of the owner and the expectations of the users by meeting the user stories detailed in the [README.md]( https://github.com/AledPeart/plant-base/blob/main/README.md). I have also manually tested the deployed site across a number of different devices and browsers to ensure that the design, layout and functionality respond as intended. In addition the validity of my HTML, CSS, Javascript and Python code have been checked using the [W3C Markup](https://validator.w3.org/) , [CSS Validation Service](https://jigsaw.w3.org/css-validator/), [JSONLint](https://jsonlint.com/) and [PEP8]( https://pypi.org/project/pep8/) respectively . Finally I have used [Lighthouse](https://developers.google.com/web/tools/lighthouse) in Chrome DevTools to test the accessibility and performance of my site. The specific tests and results are detailed below:

@@ -396,6 +396,7 @@ Full details of these summarised steps can be found [here](https://docs.github.c
 * Content [Gardeneres World](https://www.gardenersworld.com/)
 * Content [RHS](https://www.rhs.org.uk/)
 * Content [TheSpruce](www.thespruce.com)
+* Content [TheSpruce](https://www.gardeningknowhow.com/)
 
 
 ## Acknowledgements
@@ -408,3 +409,7 @@ Full details of these summarised steps can be found [here](https://docs.github.c
 * Slack forums/webinars 
 
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
+
+
+
+### Disclaimer - This project was developed purely for educational purposes

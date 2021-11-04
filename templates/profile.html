@@ -31,7 +31,7 @@
                             <!-- Code source https://stackoverflow.com/questions/7995080/html-if-image-is-not-found -->
                             {% if sheet.image %}
                             <img src="{{ sheet.image }}"
-                                onerror="this.onerror=null; this.src='static/images/placeholder-image-potted.jpg'"
+                                onerror="this.onerror=null; this.src='/static/images/placeholder-image-potted.jpg'"
                                 class="card-img-top view-sheet-image" alt="image of a {{ sheet.common_name }}">
                             {% else %}
                             <img src="{{url_for('static',filename = '/images/placeholder-image-potted.jpg')}}"
