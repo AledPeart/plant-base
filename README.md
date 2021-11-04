@@ -137,12 +137,12 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * Footer displays the social media icons (for demonstration, not currently active)
 * Footer navigation menu shows key navigation items so users can easily navigate from the bottom of the page
 
-#### Home page
+### Home page
 * Simple clean design
 * Welcome paragraph, introduces the features of the site to users
 * Buttons to get users on their way, buttons change depending on wheteher the user is logged in
 
-#### Login Page
+### Login Page
 * Simple clean design
 * Icons used to incease accessibility
 * Supporting instructive text
@@ -152,7 +152,7 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * User feedback provided by flashed messages
 * Link to register now, if the user is not signed up
 
-#### Regiser Page
+### Regiser Page
 * Simple clean design
 * Icons used to incease accessibility
 * Supporting instructive text
@@ -164,7 +164,7 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * User feedback provided by flashed messages
 * Link to login now, if the user is already signed up
 
-#### Profile Page
+### Profile Page
 * Greeting message flashed to the user upon signing in
 * Username displayed, with a welcome message
 * User logo in the navbar becomes un-checked and the users name is added
@@ -173,7 +173,7 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * pagination links at the top and nottom of the column to aid navigation
 * Button to view each sheet in more detail
 
-#### View Sheet Page
+### View Sheet Page
 * Plant image on the left of the screen
 * Quick facts card shown on the right
 * Plant care information summarised in succinct easily digestible fashion
@@ -183,7 +183,7 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * Sheet owners name displayed 
 * Convenient buttons to return to the sheets page or the profile page
 
-#### Add Sheet Page
+### Add Sheet Page
 * Neat and convenient form for users to create a new sheet
 * Clearly labelled input fields
 * Supporting instructive text
@@ -194,7 +194,7 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * User feedback provided by flashed messages on completeing the form
 * Backend checks prevent a user accessing this page if they are not logged in
 
-#### Edit Sheet Page
+### Edit Sheet Page
 * Neat and convenient form for users to update an existing sheet
 * Input fields pre-populated with the existing sheet information
 * Clearly labelled input fields
@@ -207,13 +207,13 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * Option to cancel editing a sheet, user returned to the sheets page
 * Backend checks prevent a user accessing this page if they are not logged in or if they do not own this sheet
 
-#### Delete Sheet functionality
+### Delete Sheet functionality
 * users have the option to delete their own sheets
 * Backend checks prevent a user accessing this option if they are not logged in or if they do not own this sheet
 * Defensive programming modal asks user to confirm they wish to delete the sheet
 * Option to cancel and return to the view sheet page
 
-#### Sheets Page
+### Sheets Page
 * All sheets laid out on summary cards in a responsive layout.
 * Pagination prevents the page from being cluttered 
 * Pagination lnks allow user to scroll through the pages.
@@ -223,13 +223,13 @@ Initially I had planned to have two collections, one for the plant sheets and on
 * Message displayed to the users if no results returned
 * Searvh results paginated 
 
-#### Other features
+### Other features
 * Custom 404 and 500 error pages displayed if displayed if a page can't be found
 * Button and menu links on the error pages so user can easily return to the site
 * Logout button, logs user out of their account, and displays a confirmation message
 * Flashed messages appear for 3 seconds and then dissapear 
 
-### Features To Be Implemented
+## Features To Be Implemented
 
 * Full backend image validation
 * The ability to filter sheets by category
@@ -288,6 +288,7 @@ web: python app.py
 
 * Push these 2 files to Github
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[Back to Top](#table-of-contents)
+
 ### Creating the Heroku App
 
 * Login to your Heroku account
